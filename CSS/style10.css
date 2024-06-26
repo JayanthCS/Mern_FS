@@ -1,0 +1,42 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #000;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+    width: 100%;
+    height: 100vh;
+}
+
+.text-center {
+    text-align: center;
+    margin: 50px 0px 10px;
+}
+
+
+.p1_group {
+    color: red;
+}
+
+.p2_group {
+    color: green;
+}
+
+.p3_class {
+    color: blue;
+}
+
+.p4_class {
+    color: yellow;
+}
+
+.p5_class {
+    color: pink;
+}
+
+[class*='group'] {
+    font-size: 40px;
+}
