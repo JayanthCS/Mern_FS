@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tutorial12-CSS</title>
+        <style>
+            div{
+                width: 100px;
+                height: 100px;
+                position: relative;
+                background-color: red;
+                transition: 2s;
+                animation-name: move_a_bit;
+                animation-duration: 10s;
+            }
+
+            @keyframes move_a_bit{
+                0%{left: 0px; top: 0px; background-color: red;}
+                25%{left: 500px;top: 0px;background-color: green;}
+                50%{left: 500px; top: 500px;}
+                75%{left: 0px; top: 0px;}
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+
+        </div>
+    </body>
+</html>
