@@ -1,0 +1,3 @@
+Bootstrap:Bootstrap is a free frount end framework for faster and easier web development.
+*It includes HTML And CSS.
+*Responsive design:Responsive web design is about creating web sites which automatically adjust themselves to look good on all devices,from small phones to big desktops.
