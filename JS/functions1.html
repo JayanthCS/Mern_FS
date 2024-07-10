@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tutorial1-JS</title>
+
+</head>
+
+<body>
+
+    <h1 id="main"></h1>
+
+    <script>
+        /******************************************************/
+        //                        Function
+        /******************************************************/
+
+
+        {
+            let x = 10
+            let y = 30
+            let z = x + y
+            console.log(`Sum of ${x} and ${y} is ${z}`)
+        }
+
+
+        function timeNow() {
+            var utc = new Date().toJSON();
+            console.log(utc)
+        }
+        timeNow() //Calling or invoking a function
+
+        // function <name of the function>()
+        // {
+        //     <statements>;
+        //     <statements>;
+        //     return <value>
+        //     <statements>;
+        //     <statements>;
+        // }
+
+        function myFunc() {
+            console.log("Hi I just invoked!!")
+        }
+
+        myFunc()
+
+
+        function myFunc2(xxxx, yyy, a, b, c, s, d, d, d, d, d,) {
+            console.log(`Hi ${xxxx} ${yyy}, I just invoked 2 !!`)
+        }
+
+        myFunc2("Sachin")
+
+        myFunc2()
+
+        myFunc2("Sachin", "Ramesh", 'sadsad')
+
+
+        function add(x, y) {
+            return "x + y"
+        }
+
+        function add() {
+            let x = 10
+            let y = 20
+            return x + y
+        }
+
+        console.log(add(100, 20))
+
+
+        function greet() {
+            console.log("hi i am Jayanth ")
+        }
+        greet()
+
+        let arr1 = ["jay", "jay1", "jay2", "jay3", "jay4", "jay5"]
+        console.log(arr1)
+        arr1.splice(6, 0, "jay6")
+        console.log(arr1)
+
+        new_arr1 = arr1.slice(2, 4)
+        console.log(new_arr1)
+
+        function studentGrade(name, marks) {
+
+            // let name=arguments[0]
+            //let marks=arguments[1]
+            if (marks > 80) {
+                console.log("student", name, "is distinction")
+
+            }
+            else if (marks > 60) {
+                console.log("student", name, "is Firstclass")
+            }
+            else if (marks > 35) {
+                console.log("student", name, "is just got passMarks")
+            }
+            else {
+                console.log("student", name, "is failed")
+            }
+        }
+
+        studentGrade("jay", 34)
+        studentGrade("Viji", 63)
+        studentGrade("Kuamr", 85)
+
+
+        // Here we are passing unlimited numbers of parameters.
+        function summation() {
+            //  console.log(arguments)
+            let sum = 0
+            for (let v of arguments) {
+                sum += v
+            }
+            console.log("the summation is ", sum)
+        }
+
+        summation(1, 4, 66, 55, 44, 2, 56, 56, 45, 34, 345, 46, 567)
+        summation(1, 5)
+        summation(34, 45, 67, 32, 423, 4)
+
+        //using array
+        function summation1(arr) {
+            console.log(arguments.length)
+            let sum = 0
+            for (let v of arr) {
+                sum += v
+            }
+            console.log("the summation is ", sum)
+        }
+
+        summation1([1, 4, 66, 55, 44, 2, 56, 56, 45, 34, 345, 46, 567])
+
+
+
+        // let x = function () {
+        //     console.log("hello world")
+        //     return 100
+        // }
+        // console.log(x())//outPut: hello world and undefined
+
+        //Self invoking function
+
+        // ( function () {
+        //     console.log("hello")
+        // })()
+
+        let cube = (x) => { return x * x * x }
+        console.log(cube(3))
+
+        // Arrow function
+        let cube1 = (x, y, z) => {
+            let out = x * x * x
+            return out
+        }
+        console.log(cube1(4, 2, 3))
+
+        //Default parameter function
+
+        function printVoterName(Name, Age=35) {
+            console.log(`the voter name is ${Name} and he is ${Age} years old`)
+        }
+        printVoterName("jay")
+    </script>
+
+</body>
+
+</html>
