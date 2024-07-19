@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <title>BankBazaar</title>
+  <link rel="icon" href="https://play-lh.googleusercontent.com/oWtnqTjsNAtVfMioWDncznnv_V3SxOnDIPXfZvilRvizq0KMrzwJWp2wxF-3bQIylk8">
+</head>
+
+<body class="main">
+
+  <style>
+    @media screen and (max-width:650px) {
+      .main {
+        width: 100%;
+
+      }
+
+      .drop {
+        display: none;
+      }
+
+      g .nav1 {
+        width: 100%;
+      }
+
+
+      .sec {
+        display: block;
+        text-align: center;
+        content: normal;
+        width: 100%;
+      }
+
+      .creditFree {
+        overflow: hidden;
+        width: 100%;
+
+      }
+
+      .dis {
+        width: 100%;
+        display: block;
+        float: inline-start;
+      }
+
+      .con {
+        width: 100%;
+        float: inline-start;
+        height: 105px;
+        display: inline-flex;
+        content: normal;
+        padding: 10px;
+      }
+
+      .con1 {
+
+        float: left;
+        display: inline-flex;
+        padding: 10px;
+      }
+
+      .tex {
+        padding-right: 100px;
+      }
+
+      .last {
+        display: flex;
+      }
+    }
+
+    @media screen and (max-width:500px) {
+
+      /* #carouselExample{
+      height: 350px !important;
+      background-position: 196px top !important;
+    
+       
+    } */
+
+    }
+  </style>
+
+
+  <nav class="nav1" style="background-color: #116a9e; height: fit-content;">
+
+    <div style="display: inline; box-sizing: border-box;">
+      <img width="200px" height="50px"
+        src="data:image/png;base64,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"
+        title="Low Intrest home loan,Personal loans and car loans from all bank in India" alt="BankBazaar">
+
+      <select class="drop" name="cards" id="card" title="Compare cards offer and applay online"
+        style="background-color: #116a9e; color: white;">
+        <option hidden>CARDS</option>
+        <option value="creditCards">Credit Cards</option>
+        <option value="debitCards">Debit Cards</option>
+      </select>
+
+
+      <select class="drop" name="loans" id="loan" title="applay loan online"
+        style="background-color: #116a9e; color: white;">
+        <option hidden>LOANS</option>
+        <option value="Personal_loan">Personal Loan</option>
+        <option value="Home_loan">Home Loan</option>
+        <option value="Card_loan">Card Loan</option>
+        <option value="Tow_wheeler_loan">Two Wheeler Loan</option>
+        <option value="Used_car_loan">Used Car Loan</option>
+        <option value="Education_loan">Education Loan</option>
+      </select>
+
+      <select class="drop" name="investemnt" id="invest" style="background-color: #116a9e; color: white;"
+        title="investments">
+        <option hidden>INVESTMENT</option>
+        <option value="Fixed_deposit">Fixed Deposit</option>
+        <option value="Recurring_deposit">Recurring Deposit</option>
+        <option value="Savings_Account">Savings Account</option>
+        <option value="Savings_Scheme">Savings Scheme</option>
+        <option value="Gold_rate">Gold Rate</option>
+        <option value="Silver_Rate">Silver Rate</option>
+        <option value="Mutual_Funds">Mutaual Funds</option>
+      </select>
+
+      <img width="100px" height="40px" src="https://static.bankbazaar.com/images/common/ct-navbar-link-img-v2.gif"
+        alt="Credit Score" title="free credit score">
+
+      <a class="drop" style="padding: 20px; margin-left: 32%; color: white;" title="track application">Track
+        Application</a>
+      <a style="color: white;" title="login">login</a>
+
+    </div>
+
+
+    </div>
+  </nav>
+
+  <div style="display: flex;">
+
+    <section id="carouselExample" class="carousel slide" style=" width:30%; height: auto;">
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://static.bankbazaar.com/images/gateway/finbooster-card-carousel-desktop-v4.png"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://static.bankbazaar.com/images/gateway/hsbc-card-carousel-desktop-v3.png"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://static.bankbazaar.com/images/gateway/rbl-card-carousel-desktop-v4.png" class="d-block w-100"
+            alt="..." title="RBL Bank Bazar">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </section>
+    <img width="1000px" height="340px" src="https://static.bankbazaar.com/images/gateway/ct-mobile-banner-v16.gif"
+      alt="Free credit score" title="Free Credit Score">
+  </div>
+
+
+  <section class="sec" style="background-color: #116a9e; height: 10%; padding-top: 2%; padding-left: 15%;">
+    <span style="padding: 2%; color: white;">50+ Banks</span>
+    <span style="padding: 2%; color: white;">Contactless KYC & Paperless Approval</span>
+    <span style="padding: 2%; color: white;">50,00,00,000+ Happy Customer </span>
+    <span style="padding: 2%; color: white;">Exclusive Offers & Rates</span>
+  </section>
+
+  <div class="creditFree">
+    <img width="100%" height="500px"
+      src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/10/18/Photos/Processed/bankbazaar-kbRG--621x414@LiveMint.JPG"
+      alt="Get Free Credit Score">
+  </div>
+
+  <section class="dis" style="text-align: center;">
+    <h2 style="text-align: center; ">Trending Products</h2>
+    <p style="text-align: center; font-weight:400; line-height: normal; ">Our picks for the hottest
+      offers and coolest
+      deals all in one place</p>
+
+
+    <div class="con">
+      <img src="https://static.bankbazaar.com/images/gateway/credit-card-v1.png" alt="Credit card" title="Credit Cards">
+      <img src="https://static.bankbazaar.com/images/gateway/personal-loan-v1.png" alt="Personal laon"
+        title="personal loan">
+      <img src="https://static.bankbazaar.com/images/gateway/infographic/credit-score-v4.png" alt="Free Credit Score"
+        title="Free Credit Score">
+    </div>
+    <div class="con1" style="display: inline-flex; text-align: center;">
+      <h5 style="padding-left: 70px; color: rgb(33, 33, 120);">Credit Cards</h5>
+      <h5 style="padding-left: 120px; color: rgb(33, 33, 120);">Quick Personal Loans</h5>
+      <h5 class="tex" style="padding-left: 100px; color: rgb(33, 33, 120);">Free Credit Score</h5>
+    </div>
+    <br>
+    <div class="con">
+      <img src="https://static.bankbazaar.com/images/gateway/finance-tools-v1.png" alt="Finance Tool"
+        title="Finance Tool">
+      <img src="https://static.bankbazaar.com/images/gatewaypersonal-finance-v1.png" alt="Personal Finance"
+        title="Personal Finance">
+      <img src="https://static.bankbazaar.com/images/gatewayhomeloan.png" alt="Gateway Home Loan"
+        title="Gateway HomeLoan">
+    </div>
+    <div class="con1" style="display: inline-flex; text-align: center; padding-right: 180px;">
+      <h5 style="padding-left: 50px; color: rgb(33, 33, 120);">Finance Calculators</h5>
+      <h5 style="padding-left: 100px; color: rgb(33, 33, 120);">Personal Finance</h5>
+      <h5 style="padding-left: 120px; color: rgb(33, 33, 120);">Home Loans</h5>
+    </div>
+
+
+  </section>
+
+  <div>
+    <img style="background-color: #3ab2ee;" width="100%" height="1000px"
+      src="https://static.bankbazaar.com/images/gateway/bg-why-bb-md-v4.png" alt="Why BankBazaar"
+      title="Why BankBazaar">
+  </div>
+
+  <div class="last"
+    style="background-color:#116a9e; width: 100%; height: 10%;  padding-left: 10%; display: inline-flexbox;">
+    <section style="text-align: center;">
+      <h5 style=" color: white; padding-right: 60%;">FUNDED BY:</h5>
+      <span style="padding: 0 4% 3% 2%;"><img height="40px" width="100px"
+          src="https://banner2.cleanpng.com/20180809/eg/kisspng-amazon-com-logo-brand-amazon-studios-prime-video-index-of-wp-content-uploads-2-16-2-5b6c7c590b7a35.411973451533836377047.jpg"
+          alt=""></span>
+      <span style="padding-right: 2%;"><img height="40px" width="100px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNIQFo1vOzmQM4Ua-gHbiQzI96iVOvUL195g&s"
+          alt=""></span>
+      <span style="padding-left: 2%;"><img height="40px" width="100px"
+          src="https://www.ciscoinvestments.com/assets/logos/walden-international-logo-1.png" alt=""></span>
+      <span style="padding-left: 2%;"><img height="40px" width="100px"
+          src="https://banner2.cleanpng.com/20180518/pfl/kisspng-sequoia-capital-silicon-valley-venture-capital-see-5aff9674dcaf62.8000482615266996369039.jpg"
+          alt=""></span>
+      <span style="padding-left: 2%; color: white;"><img height="40px" width="100px"
+          src="https://lh3.googleusercontent.com/proxy/o6Xp7QvweO8j5X_18wcyERjPVF56c6Vcr4OowTpfay-AabWK6UVsgq5rAmbdycD6dPV5dd6KdkzXMlBNXuEAncM3N4kUkcHMVEH0"
+          alt=""></span>
+    </section>
+  </div>
+
+
+  <!-- <div style="font-size: 20px; color: black; padding: 18px  16px ; ">
+    <span style="padding: 200px;">FUNDED BY:</span>
+    <img  height="60px" width="100px" style="padding-right: 50px;" src="https://cdn.iconscout.com/icon/free/png-256/free-amazon-1869030-1583154.png?f=webp&w=256" alt="">
+  </div> -->
+  <!-- <div style="display: table; margin: 35px auto 0;">
+      <div style="display: block;">
+        <img src="https://static.bankbazaar.com/images/gateway/credit-card-v1.png" alt="Credit card"
+          title="Credit Cards" style="display: inline; overflow: hidden; vertical-align: middle; box-sizing: border-box;
+        border: 0;">
+        <div>
+          <h5>Credit Crads</h5>
+          <p style="display: block;unicode-bidi: isolate; margin: 0; padding: 0;">The best lifetime-free,cashback cards
+            & more with contactless KYC process.</p>
+        </div>
+
+        <div>
+          <div>
+            <img src="https://static.bankbazaar.com/images/gateway/personal-loan-v1.png" alt="Personal laon"
+              title="personal loan"  >
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+
+
+  <!-- <div>
+    <ul id="bb-main-menu" class="bb-main-menu bb-products text-center clearfix" data-actionloc=":productFooter"
+      style="list-style-type: none;  ">
+      <li>
+        <a class="bbicons-cc" title="Credit Card">
+          Credit Card</a>
+      </li>
+      <li>
+        <a class="bbicons-pl" title="Personal Loan">
+          Personal Loan</a>
+      </li>
+      <li>
+        <a class="bbicons-cs" title="Credit Score">
+          Credit Score</a>
+      </li>
+      <li>
+        <a class="bbicons-hl" title="Home Loan">
+          Home Loan</a>
+      </li>
+      <li>
+        <a class="bbicons-cl" title="Car Loan">
+          Car Loan</a>
+      </li>
+      <li>
+        <a class="bbicons-calculators" title="Calculators" data-name="productType">
+          Calculators</a>
+      </li>
+    </ul>
+  </div>
+  <style>
+    .bb-products {
+      background-color: #fff;
+      margin: 0%;
+      z-index: 1;
+      position: relative;
+      width: 100%;
+      text-align: center;
+      
+    }
+
+    ul {
+      font-weight: 400;
+      line-height: normal;
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    ul {
+      display: inline-flex;
+      list-style-type: square;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 100px;
+      margin-inline-end: 10px;
+      padding-inline-start: 200px;
+      unicode-bidi: normal;
+    }
+
+    .bb-products .bbicons-cc {
+      background-position: center -296px;
+    }
+
+    .bb-products a {
+      width: 100%;
+      color: #34495e;
+      display: flex;
+      background-image: url(https://static.bankbazaar.com/images/gateway/sprite-gateway-v16.png);
+      background-repeat: no-repeat;
+      background-position: 0 100px;
+      min-height: 115px;
+      padding: 68px 5px 15px;
+    }
+
+    a {
+      color: #38acc9;
+      text-decoration: none;
+      transition: all .25s ease 0s;
+    }
+
+    @media only screen and (max-width: 1023px) {
+      .bb-products a {
+        min-height: inherit;
+      }
+    }
+
+    .bb-products a.bbicons-cs {
+      background-image: url(https://static.bankbazaar.com/images/gateway/ct-icon-animation-desktop-v2.gif);
+      background-position: center 8px;
+    }
+
+    .bb-products .bbicons-pl {
+      background-position: center -208px;
+    }
+
+    .bb-products .bbicons-hl {
+      background-position: center -17px;
+    }
+
+    .bb-products .bbicons-cl {
+      background-position: center -112px;
+    }
+
+    .bb-products .bbicons-calculators {
+      background-position: center -1930px;
+    }
+  </style> -->
+
+  <!-- <ul style="list-style-type: none; display: inline-flex">
+  <li><img width="150px" height="150px" src="https://static.vecteezy.com/system/resources/thumbnails/000/357/048/small/3__2821_29.jpg" alt="Credit card"></li>
+  <li><img width="150px" height="150px" src="https://www.shutterstock.com/image-vector/heart-icon-template-color-editable-260nw-1669444627.jpg" alt="Credit card"></li>
+  <li><img width="150px" height="150px" src="https://img.freepik.com/premium-vector/credit-score-indicator-icon-flat-illustration-credit-score-indicator-vector-icon-isolated-white-background_98396-51552.jpg" alt="Credit card"></li>
+  <li><img width="150px" height="150px" src="https://static.vecteezy.com/system/resources/previews/010/751/656/original/home-loan-icon-design-free-vector.jpg" alt="Credit card"></li>
+  <li><img width="150px" height="150px" src="https://static.vecteezy.com/system/resources/previews/005/101/385/non_2x/car-loan-icon-style-vector.jpg" alt="Credit card"></li>
+  <li><img width="150px" height="150px" src="https://as2.ftcdn.net/v2/jpg/04/26/76/67/1000_F_426766720_z7Fnu0iQQ21C4GIRlfocNo15orUT0frq.jpg" alt="Credit card"></li>
+</ul>
+  <style> -->
+
+  <!-- <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div> -->
+
+  <!-- <style>
+        /* Style The Dropdown Button */
+        .dropbtn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+        }
+        
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+        
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+        
+        /* Links inside the dropdown */
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+        
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+        
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+          background-color: #3e8e41;
+        }
+        </style> -->
+</body>
+
+</html>
