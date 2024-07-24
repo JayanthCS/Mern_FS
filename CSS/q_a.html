@@ -1,34 +1,60 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Myntra Nav Bar Example</title>
+<style>
+/* Resetting default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Styling the navigation bar */
+.navbar {
+  background-color: #333; /* Dark background color */
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd; /* Lighter background color on hover */
+  color: black;
+}
+
+/* Styling for responsive design */
+@media screen and (max-width: 600px) {
+  .navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+</style>
 </head>
-
 <body>
-    <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank">youtube</a>
-</body>
 
+<div class="navbar">
+  <a href="#">Men</a>
+  <a href="#">Women</a>
+  <a href="#">Kids</a>
+  <a href="#">Home & Living</a>
+  <a href="#">Offers</a>
+</div>
+
+</body>
 </html>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-   <select>
-    <option value="1" >many</option>
-    <option value="2" >karnataka</option>
-   </select>
  
      
 
-</body>
-
-</html>
