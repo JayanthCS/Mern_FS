@@ -1,0 +1,36 @@
+Write a code which can give grades to students according to theirs marks using Conditionals
+
+80%-100%, Distinction
+60%-79%, First Class
+50%-59%, Second Class
+35%-49%, Pass
+0%-34%, FAIL
+Get user input using prompt(“Enter your age:”). if the user is 18 years or older than 18 years allow him to vote, else infrom him how many more years he needs to become a voter.
+
+
+
+Assignment
+
+What is ECMAScript
+What is the purpose of the array slice method
+What is the purpose of the array splice method
+What is the difference between let and var
+What is the reason to choose the name let as a keyword
+How do you redeclare variables in switch block without an error
+What is a callback function
+What is typeof operator
+What is the difference between null and undefined
+What is the difference between an attribute and a property
+How do you remove trailing spaces of a string in javascript
+How do you define multiline strings
+What would be the result of 1+2+'3'
+What is an anonymous function, write syntaxt
+What are primitive data types
+What is nodejs
+What are the different types of loops in javascript
+How do you reversing an array
+How do you list all properties of a javascript object
+How do you convert character to ASCII code
+What happens if we add two arrays
+What are the differences between for...of and for...in statements
+Is that possible to use expressions in switch cases?
