@@ -60,4 +60,4 @@ console.log(x())
 //Arrow Function
 
 let cube = (x) => {return x * x * x}
-console.log(cube(3))
+console.log(cube(3 ))
