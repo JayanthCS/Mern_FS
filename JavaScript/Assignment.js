@@ -16,6 +16,20 @@ let a=['jay','abi','Anni','Karthi']
 
 console.log(a.reverse())
 
+//callback
+
+function callback(){
+    console.log("Hi")
+  }
+  
+  function main(x){
+   return x()
+  }
+  main(callback)
+  //console.log(main(callback))
+
+  
+
 /* What is ECMAScript
 What is the purpose of the array slice method
 What is the purpose of the array splice method
@@ -91,6 +105,17 @@ switch(str){
 Ans:A JavaScript callback is a function which is to be executed after another function has
 finished execution. A more formal definition would be - Any function that is passed as an argument
 to another function so that it can be executed in that other function is called as a callback function.       
+Eg:
+function callback(){
+  console.log("Hi")
+}
+
+function main(x){
+ return x()
+}
+
+console.log(main(callback))
+
 
 7,What is typeof operator
 Ans:Typeof operator is used to check the type of variable which is declared.
@@ -187,10 +212,21 @@ If there is no match, the default code block is executed
 */
 
 
-let arr1=['jay','abi','Anni','Karthi']
+let arr1=['jay','abi','Anni','Karthi',4,56,76]
 let arr2=[1,3,6,8]
+let result=arr1+arr2
+console.log(result)//converts each array to string
+console.log(arr1.concat(arr2))//create a new array in a single line by combining both the array elements.
 
-console.log(arr1.concat(arr2))
 
 //output:['jay','abi','Anni','Karthi',1,3,6,8]
 
+let Student={
+    name:'jay',
+    age:24,
+    country:'India'
+
+}
+
+console.log(Object.getOwnPropertyNames(Student))
+console.log(Object.entries(Student))
