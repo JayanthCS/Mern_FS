@@ -40,6 +40,14 @@ What happens if we add two arrays
 What are the differences between for...of and for...in statements
 Is that possible to use expressions in switch cases?
 
+
+***What is ECMAScript
+Ans:Europian Computer Manufacturers Association.
+ECMAScript is a standardized scripting language specification that serves as the basis for various
+programming languages, the most notable of which is JavaScript. Developed by ECMA International, 
+the specification defines the core features and syntax of the language,
+ensuring consistency across different implementations.
+
 1,What is the purpose of the array slice method
 Ans:In Slice() it will create a new array by coping the array elements from the original array.
 
