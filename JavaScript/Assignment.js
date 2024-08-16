@@ -230,3 +230,8 @@ let Student={
 
 console.log(Object.getOwnPropertyNames(Student))
 console.log(Object.entries(Student))
+
+
+let b='create The a new array in a single line by combining both the array elements.the'
+console.log(b.match(/The/gi))
+console.log(b.search('The'))
