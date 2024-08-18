@@ -73,6 +73,13 @@ function setting() {
 
 let x = [1, 4, 6, 7, 56, 45, 23]
 
-//x.forEach((el) => { console.log(el) })
+x.forEach((el) => { console.log(el) })
 
-x.forEach(function (el, index, arr) { console.log(el, index, arr) })
+//x.forEach(function (el, index, arr) { console.log(el, index, arr) })
+// sqr=[]
+// sqr.forEach((el)=>{sqr.push(el**2)})
+
+// console.log(console.log())
+
+
+
