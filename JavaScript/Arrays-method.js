@@ -1,4 +1,4 @@
-function sqr1(number) {
+/*function sqr1(number) {
     return number * number
 }
 function sqr2(number) {
@@ -79,7 +79,10 @@ x.forEach((el) => { console.log(el) })
 // sqr=[]
 // sqr.forEach((el)=>{sqr.push(el**2)})
 
-// console.log(console.log())
+// console.log(console.log())*/
 
-
+//every
+let num=[1,2,3,4,5]
+let boolean_array=[false,true,false,false]
+console.log(boolean_array.every(el=>el==true))
 

@@ -1,4 +1,4 @@
-let x1 = [1, 2, 3, 4, 5]
+/*let x1 = [1, 2, 3, 4, 5]
 sqr = [];
 let y = x1.forEach((el) => sqr.unshift(el ** 2))
 
@@ -23,5 +23,9 @@ console.log(y3)
 //reduce
 let nums=[1,2,3,5,9,8]//28
 let sum=nums.reduce((init,el)=> init+el,0)
-console.log(sum)
+console.log(sum)    */
+
+
+
+
 
