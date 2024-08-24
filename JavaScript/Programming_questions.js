@@ -217,7 +217,179 @@ function sumEvenNumbers(array) {
 console.log(sumEvenNumbers(numbers2))
 
 //11, Write a function to add age inside theobject.
-//(Let a=[{name:'neha',age:22},{name:"sanjay",age:24},{name:"suprith",age:28}] 
+//(Let a=[{name:'neha',age:22},{name:"sanjay",age:24},{name:"suprith",age:28}])
+
+// Initial array
+let a = [
+    { name: 'neha', age: 22 },
+    { name: 'sanjay', age: 24 },
+    { name: 'suprith', age: 28 }
+];
+
+// Function to add or update age property
+function addOrUpdateAge(arr, ageValue) {
+    return arr.map(person => {
+        // Add or update the 'age' property
+        return { ...person, age: ageValue };
+    });
+}
+
+// Example usage: updating all ages to 30
+let updatedArray = addOrUpdateAge(a, 30);
+
+console.log(updatedArray);
+
+/*Explanation:
+1,Array Definition: You have an array a where each object already contains an age property.
+2,Function addOrUpdateAge:
+#Parameters:
+*arr: The array of objects you want to process.
+*ageValue: The new age value that you want to set for each object.
+#Operation:
+Use map to iterate over each object in the array.
+For each object, create a new object using the spread operator { ...person } and
+ update or add the age property with the value provided in ageValue.
+#Usage:
+The function is called with the array a and a new age value (30 in this case).
+The updatedArray will be a new array where each object has its age property set to the new value.
+*/
+
+//12. Write a function to convert snake case to camel case.
+function snakeToCamel(snakeStr) {
+    return snakeStr
+        .toLowerCase()              // Convert the entire string to lowercase
+        .split('_')                 // Split the string by underscores
+        .map((word, index) =>       // Transform each part
+            index === 0             // If it's the first part, keep it lowercase
+                ? word
+                : word.charAt(0).toUpperCase() + word.slice(1)  // Capitalize the first letter of each subsequent part
+        )
+        .join('');                  // Join all parts together
+}
+// Example usage:
+const snakeCaseString = "this_is_a_snake_case_string";
+const camelCaseString = snakeToCamel(snakeCaseString);
+
+console.log(camelCaseString); // Output: "thisIsASnakeCaseString"
+
+
+//13. Write a function to convert camel case to snake case.
+function camelToSnake(camelStr) {
+    return camelStr
+        .replace(/([a-z])([A-Z])/g, '$1_$2')  // Insert underscore before uppercase letters
+        .toLowerCase();                       // Convert the entire string to lowercase
+}
+
+// Example usage:
+const camelCaseString1 = "thisIsACamelCaseString";
+const snakeCaseString1 = camelToSnake(camelCaseString1);
+
+console.log(snakeCaseString1); // Output: "this_is_a_camel_case_string"
+
+//14. Write a function to find the second minimum element with and without using sort method. 
+//1. Finding the Second Minimum Element Without Using the sort Method
+
+function findSecondMinWithoutSort(arr) {
+    let min = Infinity;
+    let max = Infinity;
+    for (let num of arr) {
+        if (num < min) {
+            secondMin = min
+            min = num
+        } else if (num < secondMin && num !== min) {
+            secondMin = num;
+        }
+    }
+    return secondMin
+}
+const number = [7, 2, 5, 2, 8];
+console.log(findSecondMinWithoutSort(number))
+
+//2. Finding the Second Minimum Element Without Using the sort Method
+const number1 = [7, 2, 5, 2, 8];
+function findSecondMinWithSort(arr) {
+    let uniqueArr = [...new Set(arr)].sort((a, b) => a - b);
+    return uniqueArr[1]
+}
+console.log(findSecondMinWithSort(number1))
+
+
+//15. Write a function for sorting of elements of an array without using sort method.  
+function bubbleSort(arr) {
+    let n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j + 1]
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+            }
+        }
+    }
+    return arr;
+}
+
+// Example usage:
+const numbe = [64, 34, 25, 12, 22, 11, 90];
+console.log(bubbleSort(numbe)); // Output: [11, 12, 22, 25, 34, 64, 90]
+
+//16. Write a function to find longest word in an array.
+
+function findLongestWord(words) {
+    let longestWord = words[0];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > longestWord.length) {
+            longestWord = words[i];
+        }
+    }
+    return longestWord;
+}
+// Example usage:
+const wordArray = ["watermelon", "banana", "cherry", "Apple", "grape"];
+console.log(findLongestWord(wordArray)); // Output: "watermelon"
+
+
+//17. Write a function to print common elements in an array. 
+
+function printCommonElements(arr) {
+    // Create a set to store unique elements
+    const seen = new Set();
+    // Create a set to store common elements
+    const common = new Set();
+    for (const num of arr) {
+        if (seen.has(num)) {
+            // If the element is already in 'seen', add it to 'common'
+            common.add(num);
+        } else {
+            // Otherwise, add the element to 'seen'
+            seen.add(num);
+        }
+    }
+    // Print the common elements
+    // console.log(Array.from(common).join(', '));
+    return common
+}
+// Example usage:
+const numb = [1, 2, 3, 2, 4, 5, 1, 6, 7, 5];
+console.log(printCommonElements(numb)); // Output: "1, 2, 5"
+
+
+//18. Write a function to print Fibonacci series. 
+function printFibonacciSeries(n) {
+    let a = 0
+    let b = 1;
+    console.log('Fibonacci Series:');
+    for (let i = 0; i < n; i++) {
+        console.log(a);
+        let next = a + b;
+        a = b;
+        b = next;
+    }
+}
+
+// Example usage:
+const numberOfTerms = 10;
+printFibonacciSeries(numberOfTerms);
+
 
 
 
