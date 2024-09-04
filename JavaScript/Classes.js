@@ -1,4 +1,4 @@
-class Vehicle {
+/*class Vehicle {
 
     constructor(w, c) {
         this.wheel = w
@@ -62,7 +62,7 @@ Car.fun()
 //Inheritance
 
 class GrandFather {
-    constructor(){
+    constructor() {
         console.log("Invoking a default constructor")
     }
 }
@@ -75,9 +75,59 @@ class Father extends GrandFather {
 
 //let GF_1 = new GrandFather();
 let F_1 = new Father()
-//console.log(F_1)
+//console.log(F_1)*/
 
 
+//////
+
+/*class Vehicle1 {
+    constructor(wheels, seats) {
+        this.wheels = wheels
+        this.seats = seats
+    }
+
+    details(){
+        console.log(`the vehicle has ${this.wheels} wheels and ${this.seats} seats`)
+    }
+
+}
+
+class Car extends Vehicle1 {
+    constructor(w,s) {
+        super(w,s)
+    }
+}
+
+class Truck extends Vehicle1 {
+    constructor(w,s) {
+        super(w,s)
+    }
+}
+
+let C1=new Car(4,6)
+let T1=new Truck(6,3)
+C1.details()
+T1.details()*/
+
+
+//Getter and Setter
+class Car {
+    constructor(brand) {
+        this.brand = brand;
+    }
+
+    get cname() {
+        return this.brand;
+    }
+    set cname(x) {
+        this.brand = x
+    }
+}
+
+let myCar=new Car("Ford")
+//console.log(myCar.cname)
+myCar.cname="Volvo"
+console.log(myCar.cname)
 
 
 
