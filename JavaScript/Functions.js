@@ -59,5 +59,18 @@ console.log(x())
 
 //Arrow Function
 
-let cube = (x) => {return x * x * x}
-console.log(cube(3 ))
+let cube = (x) => { return x * x * x }
+console.log(cube(3))
+
+//currying
+
+function main() {
+    function func1() {
+        function func2() {
+            return 100
+        }
+        return func2
+    }
+    return func1;
+}
+console.log(main()()())
