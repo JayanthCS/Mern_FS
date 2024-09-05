@@ -334,11 +334,11 @@ console.log(snakeCaseToCamelCase(snakeCase))*/
 //     return a * a
 // }
 
-// function cube() {
-//     return sqr()
+// function cube(x,a) {
+//     return x(a)*a
 // }
 
-// console.log(cube(2))
+// console.log(cube(sqr,2))
 
 
 
@@ -353,27 +353,75 @@ console.log(snakeCaseToCamelCase(snakeCase))*/
 //     })()
 
 
-function callback() {
+/*function callback() {
     console.log("hello i am callBack")
 }
 
-function higherOderFunction(callBacks) {
-    return callBacks()
+function higherOderFunction(callBack) {
+    return callBack()
 }
 
-console.log(higherOderFunction(callback))
+higherOderFunction(callback)
 
 function sqr() {
     return 2 * 2
 }
 
 function cube(sqr) {
-    return sqr()*2
+    return sqr() * 2
 }
 
-console.log(cube(sqr))
+console.log(cube(sqr))*/
 
 
+
+//
+
+/*function sqr(a) {
+    return a * a
+}
+
+function cube(x, a) {
+    return x(a) * a
+}
+
+console.log(cube(sqr, 2))*/
+
+let Employee = {
+    calTax() {
+        console.log("Tax rate is 10%")
+    }
+}
+
+let jay = {
+    salary: 50000
+}
+
+jay.__proto__ = Employee;
+
+//classes
+class Car {
+    constructor(brand, mileage) {
+        console.log("creating a new object")
+        this.brand = brand;
+        this.mileage = mileage
+    }
+    start() {
+        console.log("Start")
+    }
+    stop() {
+        console.log("stop")
+    }
+
+    setBrand(brand) {
+        this.brand = brand
+    }
+}
+
+let toyato = new Car("fortuner", 14)
+console.log(toyato)
+let lexus = new Car("lexus", 8)
+console.log(lexus)
 
 
 
