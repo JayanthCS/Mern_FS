@@ -387,7 +387,7 @@ function cube(x, a) {
 
 console.log(cube(sqr, 2))*/
 
-let Employee = {
+/*let Employee = {
     calTax() {
         console.log("Tax rate is 10%")
     }
@@ -421,7 +421,244 @@ class Car {
 let toyato = new Car("fortuner", 14)
 console.log(toyato)
 let lexus = new Car("lexus", 8)
-console.log(lexus)
+console.log(lexus)*/
+
+
+//Palindrome
+/*function isPalindrome(string) {
+    let normalizedString = string.replace(/[^A-Z0-9]/gi).toLowerCase()
+    let reversedStr = normalizedString.split('').reverse().join('')
+    return reversedStr === normalizedString
+}
+console.log(isPalindrome('WOW'))*/
+
+
+//Sum of PositiveNumber
+/*let number = [1, -3, 4, 5, -6, -4]
+function sumOfPositiveNumbers(array) {
+    let positiveNumbers = array.filter(num => num > 0)
+    let sum = positiveNumbers.reduce((acc, total) => acc + total, 0)
+    return sum;
+}
+console.log(sumOfPositiveNumbers(number))*/
+
+//removeDuplicates from an array
+/*function removeDuplicates(array) {
+    return [...new Set(array)]
+}
+let numbers=[1,3,2,1,2,3,4,5]
+console.log(removeDuplicates(numbers))*/
+
+//Reverse a string
+/*function reverseString(string) {
+    let reversedStr = ' ';
+    for (let i = string.length - 1; i >= 0; i--) {
+        reversedStr = reversedStr + string[i]
+    }
+    return reversedStr;
+}
+console.log(reverseString("hello"))*/
+
+//min and max elemnts in an array
+/*let numbers = [205, 405, 105,104]
+function minAndMax(array) {
+    let min = array[0]
+    let max = array[0]
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i]
+        } if (array[i] > max) {
+            max = array[i]
+        }
+    }
+    return { min, max }
+}
+console.log(minAndMax(numbers))*/
+
+//factorial
+/*function factorial(n) {
+    let fact = 1;
+    for (let i = 1; i <= n; i++) {
+        fact = fact * i
+    }
+    return fact
+}
+console.log(factorial(4))*/
+
+//
+/*let numbers = [1, 2, 3, 4, 5]
+numbers.forEach((num) => {
+    console.log(num ** 2)
+})
+
+let num = [1, 3, 4, 5, 6, 7, 8, 4]
+let nums = num.map((val) => {
+    return val * val
+})
+console.log(nums)
+console.log(num)*/
+
+/*let n = prompt("Enter a num :")
+let array = [];
+for (let i = 1; i <= n; i++) {
+    array[i - 1] = i
+}
+console.log(array)
+
+let sum=array.reduce((acc, total) => acc * total)
+console.log(sum)*/
+
+//min and max
+
+/*let num = [1, 3, 4, 5, 6, 7, 8, 4]
+function minMax(array) {
+    let min = array[0]
+    let max = array[0]
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i]
+        } if (array[i] > max) {
+            max = array[i]
+        }
+    }
+    return { min, max }
+}
+console.log(minMax(num))*/
+
+//Write a function to count how many times each element is present in an array.
+/*let fruits = ["Apple", "Banana", "Orange", "Apple", "Orange", "Apple"]
+
+function countOccurances(array) {
+
+    let countMap = {}
+    array.forEach(element => {
+        if (countMap[element]) {
+            countMap[element]++
+        } else {
+            countMap[element] = 1
+        }
+    });
+    return countMap
+}
+console.log(countOccurances(fruits))*/
+
+//Fibonacci
+/*function fibonacciSeries(n) {
+    let a = 0, b = 1;
+    for (let i = 0; i <= n; i++) {
+        console.log(a)
+        let next = a + b
+        a = b
+        b = next
+    }
+}
+//let terms = 10
+console.log(fibonacciSeries(5))*/
+
+//common elements in an array
+/*let fruits = ["Apple", "Banana", "Orange", "Apple", "Orange", "Apple"]
+function printCommonElements(array) {
+    let unique = new Set()
+    let common = new Set()
+    for (let element of array) {
+        if (unique.has(element)) {
+            common.add(element)
+        }else{
+            unique.add(element)
+        }
+    }
+    return Array.from(common).join(", ")
+}
+console.log(printCommonElements(fruits))*/
+
+//Longest word
+/*let fruits = ["Apple", "Orange", "Banana", "Apple", "Orange", "Appleeee"]
+function findLongestWord(words) {
+    let longestWord = words[0]
+    for (let i = 1; i < words.length; i++) {
+        if (words[i].length > longestWord.length) {
+            longestWord = words[i]
+        }
+    }
+    return longestWord
+}
+console.log(findLongestWord(fruits))*/
+
+
+//SecondMinElement
+
+/*let num = [45, 5765, 44, 34,]
+function SecondMinElement(array) {
+    let min1 = Infinity
+    let min2 = Infinity
+    for (let num of array) {
+        if (num < min1) {
+            min2 = min1
+            min1 = num
+        } else if (num < min2 && num !== min1) {
+            min2 = num
+        }
+    }
+    return min2
+}
+console.log (SecondMinElement(num))*/
+
+//camel to snake
+/*function camelToSnakeCase(string) {
+    return string.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()
+}
+console.log(camelToSnakeCase("thisIsCamelCaseString"))
+
+function snakeCaseToCamelCase(str) {
+    return str.toLowerCase().split('_').map((word, index) => index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)).join('')
+}
+console.log(snakeCaseToCamelCase("this_is_camel_case_string"))*/
+
+//
+/*let a = [{ name: "neha", age: 22 }, { name: "sanjay", age: 24 }, { name: "suprith", age: 28 }]
+function addOrUpdate(arr, ageValue) {
+    return arr.map(person => {
+        return { ...person, age: ageValue }
+    })
+}
+console.log(addOrUpdate(a,30))*/
+
+
+//
+/*let text = "this is me"
+let words = text.split(" ")
+let capitalizedWords = words.map(word => {
+    if (word.length > 0) {
+        return word[0].toUpperCase() + word.slice(1)
+    }
+    return word
+})
+
+console.log(capitalizedWords)*/
+
+//oddNumbers
+/*function printOddNumbers(array) {
+    let oddNum = array.filter(num => num % 2 !== 0)
+    return oddNum
+}
+console.log(printOddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+//sumofEven Numbers
+function sumOfEven(array) {
+    let even = array.filter(num => num % 2 == 0)
+    let sum = even.reduce((acc, total) => acc + total, 0)
+    return sum
+}
+console.log(sumOfEven([1, 2, 3, 4, 5, 6, 7, 8, 9]))*/
+
+
+
+
+
+
+
+
 
 
 

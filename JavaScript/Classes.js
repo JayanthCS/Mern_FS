@@ -111,7 +111,7 @@ T1.details()*/
 
 
 //Getter and Setter
-class Car {
+/*class Car {
     constructor(brand) {
         this.brand = brand;
     }
@@ -127,7 +127,85 @@ class Car {
 let myCar=new Car("Ford")
 //console.log(myCar.cname)
 myCar.cname="Volvo"
-console.log(myCar.cname)
+console.log(myCar.cname) */
+
+
+
+
+
+
+
+
+let num = 1
+let name = 'jay'
+console.log(num * name)
+
+let array = [1, 2, 3, 4, 5, 6]
+let new_array = array.slice(1, 3)
+console.log(new_array)
+
+function sqr(num) {
+    return num * num
+}
+function cube(x, num) {
+    return x(num) * num
+}
+console.log(cube(sqr, 2))
+
+let x = function () {
+    console.log('hi')
+}
+x()
+
+
+let nums = [1, 2, 3]
+let y = (el) => el > 1
+console.log(y(nums))
+
+function myFunc() {
+    function myFunc1() {
+        function myFunc2() {
+            return 100;
+        }
+        return myFunc2;
+    }
+    return myFunc1;
+}
+
+console.log(myFunc()()())
+
+function add(a, b) {
+    return a + b;
+}
+console.log(add(2,3))
+console.log(add(2,3))
+
+
+let incre=0;
+function increments(){
+     incre=incre+1
+     return incre
+}
+console.log(increments())
+console.log(increments())
+console.log(increments())
+
+let a="racecar"
+
+function palindrame(str){
+   normalizedStr=str
+   reveseStr=normalizedStr.split("").reverse().join('')
+   return normalizedStr===reveseStr
+}
+console.log(palindrame(a))
+
+
+
+
+
+
+
+
 
 
 
