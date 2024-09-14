@@ -113,6 +113,17 @@ let doc=document.querySelector("#myDiv").innerHTML;
 let doc2=document.querySelector("p").childNodes[0].nodeValue;
 let doc3=document.querySelector("#id2").lastChild.nodeValue;
 
+let para=document.createElement("h1")
+para.innerHTML="This is new Heading"
+para.style.color="blue"
+let element=document.getElementById("myDiv")
+let child=document.getElementById("id1")
+element.insertBefore(para,child)
+//para.remove()
+
+
+
+
 
 
 
