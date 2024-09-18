@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesudo</title>
+
+    <style>
+        #myBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        #para::first-line {
+
+            font-weight: bold;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myBtn">Hover Me!!</button>
+    <p id="para">this para1</p>
+    <h1>heading1</h1>
+    <canvas id="animationCanvas" width="200" height="200"></canvas>
+
+    <script>
+        let canvas = document.getElementById("animationCanvas");
+        let ctx = canvas.getContext('2d');
+
+        let x = 0;
+        function animation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'red';
+            ctx.fillRect(x, 50, 50, 50);
+            x = x + 2;
+            if (x < canvas.width) requestAnimationFrame(animation);
+        }
+        animation()
+    </script>
+</body>
+
+</html>

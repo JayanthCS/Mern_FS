@@ -21,7 +21,16 @@ fetch(api_url).then(response => response.json())
     .catch(error => console.log(error))*/
 
 
-    
+//promise.all()
+let p1 = Promise.reject(121)//resolve(121)
+let p2 = 21
+let p3 = new Promise((resolve, reject) => {
+    setTimeout(reject, 3000, 'Good Morning')
+})
+let p4 = 25
+
+Promise.race([p1, p4, p3, p2]).then((data) => console.log(data))//['Good Morning',21,121]
+    .catch((error) => console.log(error))//121
 
 
 

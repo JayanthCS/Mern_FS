@@ -652,6 +652,43 @@ function sumOfEven(array) {
 }
 console.log(sumOfEven([1, 2, 3, 4, 5, 6, 7, 8, 9]))*/
 
+//Camel to sanke Case without built in function
+/*function camelToSnake(camelCase) {
+    let snakeCase = '';
+    for (let i = 0; i < camelCase.length; i++) {
+        let char = camelCase[i]
+        //check if the character is an uppercase letters
+        if (char >= 'A' && char <= 'Z') {
+            //if it is not the first character,add an underscore
+            if (i > 0) {
+                snakeCase = snakeCase + '_';
+            }
+            //covert upper to lower case by adjusting ASCII Value
+            snakeCase = snakeCase + String.fromCharCode(char.charCodeAt(0) + 32)
+        } else {
+            //for lower case letters, just append them
+            snakeCase = snakeCase + char
+        }
+    }
+    return snakeCase;
+}
+let result=camelToSnake("camelCaseString")
+console.log(result)*/
+
+//for of and for in...
+
+/*let array = [1, 2, 3, 4, 5]
+for (const value of array) {
+    console.log(value,array)
+}
+let array1=[6,7,8,9,10]
+for(const object in array1){
+    console.log(object,array1[object])
+}*/
+
+
+
+
 
 
 

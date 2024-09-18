@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: dodgerblue;
+            color: white;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">btn1</button>
+    <button ondblclick="console.log('button was clicked twice')">click me Twice!</button><br><br>
+    <div onmouseover="console.log('You are inside div')">this is div</div>
+    <p id="para">this is para touch me!</p><br><br>
+    <button id="mode">Change mode</button>
+    <script src="Events.js"></script>
+</body>
+
+</html>
