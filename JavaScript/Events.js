@@ -22,3 +22,11 @@ modeBtn.addEventListener('click', () => {
     }
     console.log(currMode)
 })
+
+//
+
+
+function foc(){
+    document.getElementById('input').style.color='blue';
+}
+

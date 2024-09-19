@@ -452,3 +452,4 @@ console.log(secondMin(array))
 
 
 
+
