@@ -22,7 +22,7 @@ fetch(api_url).then(response => response.json())
 
 
 //promise.all()
-let p1 = Promise.reject(121)//resolve(121)
+/*let p1 = Promise.reject(121)//resolve(121)
 let p2 = 21
 let p3 = new Promise((resolve, reject) => {
     setTimeout(reject, 3000, 'Good Morning')
@@ -33,6 +33,87 @@ Promise.race([p1, p4, p3, p2]).then((data) => console.log(data))//['Good Morning
     .catch((error) => console.log(error))//121
 
 
+    let array = [[1, 2], [3, 4], [5, 6]]
+    //console.log(array.flat())
+    function flattenArray(array) {
+        return array.flat();
+    }
+    console.log(flattenArray(array))*/
+    
+    //promises
+    /*let promise = new Promise((resolve, reject) => {
+        let skills = ["css", 'js', 'html']
+        if (fe = skills.includes("jss")) {
+            resolve(`the given skill is present`)
+        } else {
+            reject(`the given skill is not present`)
+        }
+    })
+    
+    promise.then((data) => { console.log(data) })
+        .catch((error) => { console.log(error) })
+    
+    function main(a) {
+        function func1(b) {
+            let sum = a + b
+            function func2(c) {
+                return sum = a + b + c   
+            }
+            return func2;
+        }
+        return func1;
+    }
+    console.log(main(2)(2)(3))*/
+    
+    //promises
+    /*function getdataa(getData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("data", getData)
+                resolve("Succsses")
+            }, 4000)
+    
+        })
+    }
+    // fun(1).then((data) => { console.log(data) })
+    //fun(2).then((data) => { console.log(data) })
+    
+    //Promises Chaining
+    getdataa(1).then((res) => {
+        return getdataa(2);
+    }).then((res) => {
+        return getdataa(3);
+    }).then((res) => {
+        console.log(res)
+    })*/
+    
+    //Async and Await
+    
+    /*function app() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("Print me");
+                resolve(200)
+            }, 3000);
+        })
+    }
+    async function myfun() {
+        await app()
+    }
+    
+    function api() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("Weather Details");
+                resolve(200);
+            }, 6000);
+        });
+    }
+    
+    async function getWeatherData() {
+        await api()
+        await api()
+    }*/
 
 
 

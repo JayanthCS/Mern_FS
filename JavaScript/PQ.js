@@ -163,13 +163,15 @@ function printCommon(array) {
 }
 printCommon(numbers)*/
 
-function sqr(num){
+/*function sqr(num){
 return num*num
 }
 function cube(x,num){
 return x(num)*num
 }
-console.log(cube(sqr,3))
+console.log(cube(sqr,3))*/
+
+//
 
 
 

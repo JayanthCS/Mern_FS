@@ -8,17 +8,40 @@
       color: red;
       background-color: black;
     }
+
     .yellow {
       color: rgb(220, 227, 227);
     }
+
     #heading {
       color: blue;
+    }
+
+    .parent {
+      display: flex;
+      justify-content: center;
+      /* Centers horizontally */
+      align-items: center;
+      /* Centers vertically */
+      height: 200px;
+      /* Set a height for the parent */
+      border: 1px solid #000;
+      /* Optional for visibility */
+    }
+
+    .child {
+      padding: 20px;
+      background-color: lightblue;
+      /* Optional for visibility */
     }
   </style>
 </head>
 
 <body>
   <h1 id="heading" class="yellow">Today is Monday</h1>
+  <div class="parent">
+    <div class="child">Centered Child</div>
+  </div>
 
 </body>
 

@@ -12,6 +12,8 @@ console.log(isPalindrome(text1))
 console.log(isPalindrome(text2))
 */
 
+const { log } = require("console")
+
 /*let array=[2,3,-4,-6,35,6,]
 
 function sumOfPositiveNumbers(array){
@@ -686,40 +688,20 @@ for(const object in array1){
     console.log(object,array1[object])
 }*/
 
+/*let array=["one","two","three"]
+let arr=array.includes("one")
+console.log(arr);
+let string="Hello"
+console.log(string.includes("o"))*/
 
+/*console.log(true == " ")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let a = 10;
+let b = new Number(10);
+let c = 10
+console.log(b)
+console.log(+true)
+console.log(!"xyz")*/
 
 
 
