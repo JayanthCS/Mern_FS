@@ -109,17 +109,34 @@ function removeHandler() {
     document.getElementById("myDiv").removeEventListener("mousemove", on)
 }*/
 
-let doc=document.querySelector("#myDiv").innerHTML;
-let doc2=document.querySelector("p").childNodes[0].nodeValue;
-let doc3=document.querySelector("#id2").lastChild.nodeValue;
+// let doc=document.querySelector("#myDiv").innerHTML;
+// let doc2=document.querySelector("p").childNodes[0].nodeValue;
+// let doc3=document.querySelector("#id2").lastChild.nodeValue;
 
-let para=document.createElement("h1")
-para.innerHTML="This is new Heading"
-para.style.color="blue"
-let element=document.getElementById("myDiv")
-let child=document.getElementById("id1")
-element.insertBefore(para,child)
-//para.remove()
+// let para=document.createElement("h1")
+// para.innerHTML="This is new Heading"
+// para.style.color="blue"
+// let element=document.getElementById("myDiv")
+// let child=document.getElementById("id1")
+// element.insertBefore(para,child)
+// //para.remove()
+
+
+let div=document.getElementById("div1")
+div.style.color="red"
+let para=document.getElementById("p1").style.color="blue"
+let new_para=document.createElement("p")
+let new_para_text=document.createTextNode("Hello i am new para")
+new_para.appendChild(new_para_text)
+//let div1=document.getElementById("div1")
+div.appendChild(new_para)
+
+
+
+let btn=document.getElementById("myBtn").addEventListener("click",()=>{
+    document.getElementById("myBtn").style.backgroundColor="blue"
+    document.getElementById("myBtn").style.color="yellow"
+})
 
 
 

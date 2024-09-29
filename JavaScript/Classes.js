@@ -504,31 +504,31 @@ getdataa(1).then((res) => {
 
 //Async and Await
 
-function app() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("Print me");
-            resolve(200)
-        }, 3000);
-    })
-}
-async function myfun() {
-    await app()
-}
+// function app() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("Print me");
+//             resolve(200)
+//         }, 3000);
+//     })
+// }
+// async function myfun() {
+//     await app()
+// }
 
-function api() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("Weather Details");
-            resolve(200);
-        }, 6000);
-    });
-}
+// function api() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("Weather Details");
+//             resolve(200);
+//         }, 6000);
+//     });
+// }
 
-async function getWeatherData() {
-    await api()
-    await api()
-}
+// async function getWeatherData() {
+//     await api()
+//     await api()
+// }
 
 
 

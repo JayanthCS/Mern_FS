@@ -152,6 +152,115 @@ sumOfEven(array)*/
 console.log(factorial(4))*/
 
 
+/*let fruits = ["Apple", "Orange", "Banana", "Pomogranet"]
+function findLongestword(words) {
+    let longestwWord = words[0]
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > longestwWord.length) {
+            longestwWord = words[i]
+        }
+    }
+    return longestwWord
+}
+console.log(findLongestword(fruits));
+
+//common elements
+function printCommonElements(array) {
+    let common = new Set()
+    let unique = new Set()
+    for (let num of array) {
+        if (unique.has(num)) {
+            comm = common.add(num)
+        } else {
+            unique.add(num)
+        }
+    }
+    return comm
+}
+let arr = [1, 3, 2, 1, 2, 3, 4, 5, 6, 4, 5, 6]
+console.log(printCommonElements(arr));
+
+function positiveNumbers(array) {
+    let sum=0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            positiveNum = array[i]
+          
+            sum=sum+positiveNum
+        }
+    }
+   return sum  
+}
+let nums=[1,2,-3,-4,3,4]
+console.log(positiveNumbers(nums));*/
+
+
+
+
+
+
+// let x=10;
+// let y='10'
+
+
+// if(){
+
+// }else{
+
+// }
+
+// if(){
+
+// }else if(){
+
+// }
+
+// let numOfWheels=10;
+// switch(numOfWheels){
+//     case 1 :console.log("it is just a wheel ")
+//     break;
+//     case 2 :console.log("it is a bike ")
+//     break;
+//     case 3 :console.log("it is  a auto ")
+//     break;
+//     case 4 :console.log("it is a car ")
+//     break;
+//     default:console.log("invalid");
+// }
+
+// let array=[]
+// let arr=Array()
+// let arr1=Array(8).fill(0)
+// console.log(arr1);
+
+
+let x=1.234
+console.log(Math.floor(x))
+
+let count=4
+count>5?console.log("number is greater than 5")
+:console.log("number is less than 5");
+
+let numOfWheels=10;
+switch(numOfWheels){
+    case 1 :console.log("it is just a wheel ")
+    break;
+    case 10 :console.log("it is a bike ")
+    break;
+    case 3 :console.log("it is  a auto ")
+    break;
+    case 4 :console.log("it is a car ")
+    break;
+    default:console.log("invalid");
+}
+
+
+
+
+
+
+
+
 
 
 

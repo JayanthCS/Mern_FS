@@ -47,5 +47,14 @@ for (let index in obj) {
     console.log(index)
 }*/
 
+let http = require('http')
+let file_system = require("fs")
+
+http.createServer((request, response) => {
+    file_system.readFile('intro.html', (error, data) => {
+        response.write(data)
+        response.end()
+    })
+}).listen(3000)
 
 
