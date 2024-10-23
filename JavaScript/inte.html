@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle Names</title>
+    <style>
+        h1 {
+            cursor: pointer; /* Change cursor to pointer for better UX */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="name">hello</h1>
+
+    <avinash style="background-color: red;">hello avi</avinash>
+
+    <script>
+        const names = ["neha", "jayanth", "ajith"];
+        let index = 0;
+
+        document.getElementById("name").addEventListener("click", function() {
+            this.textContent = names[index]; // Change the text to the current name
+            index = (index + 1) % names.length; // Update the index to the next name, looping back to 0
+        });
+    </script>
+</body>
+</html>

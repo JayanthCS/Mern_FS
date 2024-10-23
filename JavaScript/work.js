@@ -4,6 +4,8 @@
 // var x = 5;
 // console.log(x); // 5
 
+// const { log } = require("console")
+
 
 //DOM
 /*let div = document.createElement("div")
@@ -654,13 +656,13 @@ console.log(positiveNumbers(nums));*/
 //     lastName:"Smith"
 // }
 
-//Object.assign(target,source)
-//console.log(Object.assign(person1,person2));
+// //Object.assign(target,source)
+// console.log(Object.assign(person1,person2));
 
 //Object.entries(object):Returns an array of key/value pair
 //console.log(Object.entries(person1));
 
-//Object.fromEntries():creates an object from a list of ket/value pairs
+//Object.fromEntries():creates an object from a list of key/value pairs
 // let fruits=[
 //     ["apples",300],
 //     ["pears",400],
@@ -710,6 +712,7 @@ console.log(positiveNumbers(nums));*/
 // function flattenArray(array) {
 //     let result = []
 //     for (let item of array) {
+//         console.log(item); 
 //         if (Array.isArray(item)) {
 //             result = result.concat(flattenArray(item))
 //         }else{
@@ -718,6 +721,7 @@ console.log(positiveNumbers(nums));*/
 //     }
 //     return result
 // }
+// flattenArray(nestedArrat)
 
 // let flattenedArray=flattenArray(nestedArrat)
 // console.log(flattenedArray);
@@ -729,10 +733,459 @@ console.log(positiveNumbers(nums));*/
 // console.log(array1);
 
 
+//  console.log('string'*"string")//NaN
+//  console.log(5=="5");//TRUE
+//  console.log(5==="5");//False
+
+// console.log(typeof NaN);//Number
+//  console.log(NaN===NaN);//false
+//  console.log("String"==="string");//false
+
+// console.log(1<2<3);
+// console.log(3>2>1);
+
+
+//Promises
+// let prom = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log("Hello")
+//         resolve("sucsses")
+//     }, 3000)
+// })
+// prom.then((res) => {
+//     console.log(res);
+// })
+
+//callbackHell
+// function getData(dataId, getNextData) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataId)
+//             if (getNextData) {
+//                 getNextData()
+//             }
+//             resolve(200)
+//         }, 3000);
+//     })
+// }
+
+// getData(1,()=>{getData(2,()=>{getData(3,()=>{console.log("succsses");
+// })})})
+
+//promise chaining
+// function getData(dataId) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataId)
+//             resolve("succses")
+//         }, 2000)
+//     })
+// }
+
+// getData(1).then(() => { return getData(2) }).then(() => { return getData(3) }).then((res) => {
+//     console.log(res);
+// })
+
+
+//async and await
+// function getData(dataId){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("data",dataId);
+//             resolve("succsses")
+//         }, 2000);
+//     })
+// }
+
+// async function myFunc() {
+//     await getData(1)
+//     await getData(2)
+//     await getData(3)
+//     await getData(3).then((res)=>{console.log(res);
+//     })
+// }
+// myFunc();
+
+
+// class Vehicle {
+//     constructor(brand, price) {
+//         this.brand = brand;
+//         this.price = price
+//     }
+// }
+
+// class Car extends Vehicle {
+//     constructor(brand,price,name) {
+//         super(brand, price)
+//         this.name = name 
+//     }
+// }
+
+// let newCar=new Car("Audi",2000050,"Audi300")
+// console.log(newCar);
+
+// let cls = new Vehicle("BMW", 200000)
+
+//Arguments keyword
+
+// function sumation(){
+//     return arguments;
+// }
+// console.log( sumation(1,3,5,7,8));
+
+// function summation(){
+//     let sum=0;
+//     for(let s of arguments){
+//         sum=sum+s;
+//     }
+//     console.log(`sum is ${sum}`);
+// }
+// summation(1,3,5,7,8);
+
+
+//call apply bind
+
+// let Person = {
+//     fname: "Jay",
+//     lname: "cs",
+//     details: function (age, height) {
+//         return `the persons name is ${this.fname},${this.lname} and he is${age} years old and ${height} of height`
+//     }
+// }
+
+// let person1 = {
+//     fname: "abhi",
+//     lname: "cs"
+// }
+
+// console.log(Person.details.call(person1,23,156));
+// console.log(Person.details.apply(person1,[23,156]));
+// console.log(Person.details.bind(person1,23,156));
+
+// let binds=Person.details.bind(person1,23,156)
+// console.log(binds());
+
+
+// function displayDate() {
+//     return document.getElementById("demo").innerHTML = Date();
+// }
+
+// document.getElementById("myBtn").onclick = displayDate;
+
+
+// document.getElementById("myBtn").addEventListener("click",displayDate)
 
 
 
 
+
+
+
+
+// let Student = {
+//     fname: "Jayanth",
+//     lname: "cs",
+//     fullName: function (age, height) {
+//         return `full name is ${this.fname},${this.lname},age is ${age} and height is ${height}`
+//     }
+// }
+
+// let Student2 = {
+//     fname: "karthik",
+//     lname: "um"
+// }
+
+// console.log(Student.fullName.apply(Student2, [24, 156]));
+
+
+
+
+// let prop=[ [ 'fname', 'karthik' ], [ 'lname', 'um' ] ]
+
+
+// let assigns=Object.assign(Student2,Student)
+// console.log(assigns);
+
+// let entries=Object.fromEntries(prop)
+// console.log(entries);
+
+
+
+// let array = [{ name: "Jayanth", age: 24 }, { name: "Karthik", age: 22 }]
+// console.log(array.map((el) =>
+//     el.name
+// ));
+
+// // console.log(array.entries(array));
+
+// let array1 = [{ name: "Jayanth", age: 24 }, { name: "Karthik", age: 22 }]
+
+// let y=array1.map((el) => 
+//     el.name
+//     // console.log(el.name); 
+//  );
+//  console.log(y);
+
+// myFunc()
+// function myFunc(){
+//     console.log("hello");
+
+// }
+
+
+//Argumnents
+// function func(){
+//      return arguments;
+// }
+
+// console.log(func("jay","anni","karthi"));
+
+
+//Prototype
+// let Employee = {
+//     fname: "jay",
+//     lname: "cs",
+//     details: function () {
+//         return `full name is ${this.fname},${this.lname}`
+//     }
+// }
+
+// let empName = {
+
+// }
+
+// empName.__proto__ = Employee
+// console.log( empName.details());
+
+// function student(name, age) {
+//     this.name = name
+//     this.age = age
+// }
+
+// student.prototype.details = function() {
+//     console.log(this.age);
+//     console.log(this.name);
+// }
+
+// let obj = new student("jay", 24)
+// obj.details()
+
+//slice and splice method
+
+// let array=[1,2,3,4,5,6,7,8]
+//  array.splice(2,0,'10','11','12');
+//  console.log(array);
+
+// let arr=array.slice(1,5)
+// console.log(arr);
+
+//callBack Hell
+// function getData(dataId, getNextData) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataId);
+//             if (getNextData) {
+//                 getNextData()
+//             }
+//             resolve("succsses")
+//         }, 2000);
+//     })
+// }
+
+// getData(1, () => {
+//     getData(2, () => {
+//         getData(3, () => {
+//             console.log("successes")
+//         })
+//     })
+// })
+
+//promise chaining
+// function getData(dataId) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataId)
+//             resolve("succsess")
+//         }, 2000);
+//     })
+// }
+
+// getData(1).then(() => { return getData(2) }).then(() => { return getData(3) }).then((res) => {
+//     console.log(res);
+// })
+
+
+//async and await
+// function getData(dataId) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data", dataId);
+//             resolve("Succsses")
+//         }, 2000);
+//     })
+// }
+
+// async function asyncFunc() {
+//     await getData(1)
+//     await getData(2)
+//     await getData(3)
+//     await getData(4).then((res) => {
+//         console.log(res);
+//     })
+// }
+// asyncFunc()
+
+//workings
+// for(let i=2;i>1;i++){
+// console.log("hello");
+// }
+
+//Programming question
+//Plindrome or not
+// function isPalondrome(string) {
+//     let normalizedString = string.toLowerCase()
+//     let reversedString = normalizedString.split("").reverse().join("")
+//     return normalizedString===reversedString
+// }
+// console.log(isPalondrome("moms"));
+
+
+//Sum of all the positive numbers
+// function sumOfPositiveNumbers(array) {
+//     let positiveNumbers = array.filter((num) =>  num > 0 )
+//     let sum=positiveNumbers.reduce((total,sum)=>total+sum,0)
+//     return sum;
+// }
+// let numbers=[1,3,-3,-4,5,-6]
+// console.log(sumOfPositiveNumbers(numbers));
+
+
+//Remove duplicates from an array
+// let array = [1, 3, 4, 5, 2, 3, 4, 5, 6, 1, 7, 8, 9, 5, 6, 7, 8, 9, 10]
+// function removeDuplicates(array) {
+//     let unique = [...new Set(array)]
+//     let orderTheUnique = unique.sort()
+//     return unique;
+// }
+// console.log(removeDuplicates(array));
+
+//Reverse a String without Built in methods
+// function reverseString(string) {
+//     let reversed = "";
+//     for (let i = string.length - 1; i >= 0; i--) {
+//         reversed = reversed + string[i]
+//     }
+//     return reversed;
+// }
+// console.log(reverseString("hello"));
+
+//min and max elemnts in an array
+// let array = [56, 6, 8, 9, 13, 45, 87, 546, 89]
+// function minAndMax(array) {
+//     let min = array[0]
+//     let max = array[0]
+
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] < min) {
+//             min = array[i];
+//         } if (array[i] > max) {
+//             max = array[i];
+//         }
+//     }
+//     return { min, max }
+// }
+// console.log(minAndMax(array));
+
+//factorial 
+
+// function factorial(n) {
+//     let fact=1;
+//     for(let i=1;i<=n;i++)
+//     {
+//         fact=fact*i
+//     }
+//     return fact
+// }
+// console.log(factorial(3));
+
+//console.log(Math.pow(2,0.2));
+
+//Count an array
+// function countOccurance(array) {
+//     let countMap={}
+//     array.forEach(element => {
+//         if(countMap[element]){
+//             countMap[element]++
+//         }else{
+//             countMap[element]=1
+//         }
+//     });
+//     return countMap;
+// }
+// console.log(countOccurance(["apple","apple","orange","banana"]));
+
+
+//fibonacci series
+// function fibonacci(n) {
+//     let a = 0, b = 1;
+//     console.log("Fibonacci Series");
+//     for (let index = 0; index < n; index++) {
+//         console.log(a);
+//         let next = a + b;
+//         a = b;
+//         b = next;
+//     }
+// }
+// fibonacci(5)
+
+//Common elements in ana array
+// let array = [2, 3, 4, 5, 1, 2, 3, 4, 5]//2,3,4,5
+// function printCommonElements(array) {
+//     let common = new Set()
+//     let unique = new Set()
+
+//     for (const element of array) {
+//         if(unique.has(element)){
+//        common.add(element)
+//         }else{
+//             unique.add(element)
+//         }
+//     }
+//     return  common;
+// }
+// console.log(printCommonElements(array));
+
+//Longest word in an array
+// let array = ["Jayanth", "Apple", "Bananan"]
+// function longestWord(array) {
+//     let longestWord = array[0]
+//     let ele = {}
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i].length >= longestWord.length) {
+//             if (ele[array[i]]) {
+//                 ele[array[i]]++
+//             }
+//         }
+//     }
+//     return ele;
+// }
+// console.log(longestWord(array));
+
+//bubble sort
+// function bnubbleSort(array) {
+//     for (let i = 0; i < array.length - 1; i++) {
+//         for (let j = 0; j < array.length - i - 1; j++) {
+//             if (array[j] > array[j + 1]) {
+//                 [array[j], array[j + 1]] = [array[j + 1], array[j]]
+//             }
+//         }
+//     }
+//     return array
+// }
+// let num=[64,25,45,87,69,25,36]
+// console.log(bnubbleSort(num));
+
+//
 
 
 

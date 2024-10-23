@@ -1,0 +1,13 @@
+create table class(
+    id int unique default
+    name text,
+    age int,
+    branch varchar(225)
+);
+alter table class modify column id int unique auto_increment;
+insert into class values(1,"Jayanth",25,"Civil"),
+(2,"Karthik",23,"Bcom"),
+(3,"Annayya",20,"BBA"),
+(4,"Yeshwanth",18,"CS"),
+(5,"Marula",26,"MECH"),
+(6,"Punith",29,"EC");
