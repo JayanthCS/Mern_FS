@@ -63,9 +63,9 @@
 
 
 
-const { error } = require("console")
-let file_System = require("fs")
-let http = require("http")
+// const { error } = require("console")
+// let file_System = require("fs")
+// let http = require("http")
 
 // http.createServer((request, response) => {
 //     file_System.readFile("home.html", (error, data) => {
@@ -108,6 +108,18 @@ let http = require("http")
 
 
 
+
+// const EventEmitter = require('node:events');
+
+// const eventEmitter = new EventEmitter();
+
+
+// eventEmitter.on('start', number => {
+//     console.log(`started ${number}`);
+//   });
+  
+//   eventEmitter.emit('start', 23);
+  
 
 
 

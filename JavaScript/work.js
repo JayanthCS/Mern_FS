@@ -4,6 +4,10 @@
 // var x = 5;
 // console.log(x); // 5
 
+const { log } = require("console")
+
+// const { log } = require("console")
+
 // const { log } = require("console")
 
 
@@ -1187,6 +1191,267 @@ console.log(positiveNumbers(nums));*/
 
 //
 
+// let arr=[5,67,78,5,78,89]
+// function maxNum(arr){
+//    return Math.min(...arr)
+// }
+// console.log(maxNum(arr));
+
+
+
+// let arr = [5, 67, 78, 6, 78, 89]
+// function secondLargest(arr) {
+//     let sorted = arr.sort()
+//     return sorted[1];
+// }
+// console.log(secondLargest(arr));
+
+
+// console.log(typeof("5"+1))
+// console.log(typeof(5+3+"10"));//810
+
+// let user=alert("login")
+// console.log(user);//one button ok
+//promt==>user input
+//confirm==>two buttons ok and cancle
+
+
+//"use strict";
+// x=20
+// console.log(x);
+
+// (function() {
+//     var a = b = 5;
+//   })();
+//   console.log(typeof a); 
+//   console.log(typeof b);
+
+//   let a = [1, 2, 3];
+// let b = a;
+// b.push(4);
+// console.log(a);
+// console.log(b);
+
+
+
+
+
+
+// let arr=[1,2,3,[4,5,6,[7,8,9]]]
+// let flattenArray=arr.flat(arr)
+// //console.log(flattenArray);
+
+// let flattenArray2=flattenArray.flat()
+// let flattenArray3=flattenArray2.flat()
+// console.log(flattenArray3);
+
+// let arr = [1, 2, 3, [4, 5, 6, [7, 8, 9]]]
+// function flattenArray(array) {
+//     let flattenedArray = [];
+//     for (let items of array) {
+//         if (Array.isArray(items)) {
+//             flattenedArray = flattenedArray.concat(flattenArray(items))
+//         } else {
+//             flattenedArray.push(items);
+//         }
+//     }
+//     return flattenedArray;
+// }
+
+// console.log(flattenArray(arr));
+
+
+// let promise1=console.log("hello")
+// let promise2=setTimeout(()=>{console.log("hi");
+// },2000)
+// let promise3=console.log("Jayanth")
+// let result=new Promise((resoolve,reject)=>{
+//      console.log("he");
+
+// })
+// Promise.all([promise1,promise2,promise3,result]).then((data)=>{console.log(data);
+// })
+
+
+//function getData(dataId){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log("data",dataId)
+//             resolve("success")
+//         }, 2000);
+//     })
+// }
+
+// async function readData(){
+//     await getData(1);
+//     await getData(2);
+
+// }
+// readData()
+
+
+// try {
+//    console.log(hello) 
+// } catch (error) {
+//    console.log(error);
+// }
+
+// localStoracls
+
+// function foo(a,...rest,c){
+//     console.log(a,rest,c);
+// }
+// foo(1,2,3,4,5,6)
+
+// function foo() {
+
+//     var x = 10
+//     console.log(x);
+// }
+// foo()
+
+
+// function reverseString(str) {
+//     originalString = str;
+//     reversedStr = originalString.split("").reverse().join("");
+//     return originalString === reversedStr
+// }
+// console.log(reverseString("mom"));
+
+// let array=["Jayanth","jay@gmail.com","css","html","js"]
+// let [name,email,...skills]=array
+// console.log(name,email,skills);
+
+// let letters = new Set(['a', 'b', 'c', 'd'])
+// console.log(letters);
+// let letters1 = new Set()
+// letters1.add('a')
+// letters1.add('b')
+// letters1.add('c')
+// letters1.add('d')
+// console.log(letters1);
+
+// let fruits=new Map([["apple",500],["Orange",400]])
+// console.log(fruits);
+
+// let fruits1=new Map()
+// fruits1.set("apple",500)
+// fruits1.set("Grapes",400)
+// fruits1.set("Orange",300)
+// console.log(fruits1);
+
+// let p1 = Promise.resolve(121)
+// let p2 = 25
+// let p3 = new Promise((resolve, reject) => {
+//     setTimeout(resolve,2000,"Good Morning!!")
+// })
+
+// Promise.race([p1, p2, p3]).then((data) => {
+//     console.log(data);
+// })
+
+// let x=5;
+// let y=10;
+// console.log(NaN==NaN);
+
+// let array=["jay","Karthi","abhi"]
+// console.log(array.toString());
+// console.log(array);
+
+
+// while (condition) {
+
+// }
+
+// let text = "";
+// let i = 0;
+// do {
+//     text += i+"  ";
+//     i++;
+// }
+// while (i <= 5);
+// console.log(text);
+
+
+// function summation() {
+
+//     let sum = 0;
+//     for (let v of arguments) {
+//         sum = sum + v
+//     }
+//     console.log("sum is ", sum);
+// }
+
+// summation(1,2,34,5,6)
+
+
+// let fruits1=new Map()
+// fruits1.set("apple",500)
+// fruits1.set("Grapes",400)
+// fruits1.set("Orange",300)
+// console.log(fruits1);
+
+// console.log(fruits1.entries());
+
+
+
+// let Employee = {
+//     calTax() {
+//         console.log("tax rate is 10%");
+//     }
+// }
+
+// let Jayanth = {
+//     salary: 5000
+// }
+
+// Jayanth.__proto__ = Employee
+
+// Jayanth.calTax()
+
+
+// let y=[1, 2, 3].reduce((acc, curr) => acc + curr, 0)
+// console.log(y);
+
+// let number=[false,true,false,false]
+// console.log(number.findIndex(el=>el==true));
+
+// let x=document.getElementById("para")
+// x.innerHTML="hello";
+// console.log(x);
+
+
+// let x=document.getElementById('demo')
+// x.style.color="red"
+// console.log(x);
+
+
+// document.getElementById("myId").innerHTML = "oops!"
+
+// document.getElementById("myId").addEventListener("click", displayDate);
+
+// function displayDate() {
+//     document.getElementById("para").innerHTML = Date();
+// }
+
+
+// let p1 = Promise.resolve(121)
+// let p2 = 25
+// let p3 = new Promise((reject, resolve) => {
+//     setTimeout(resolve, 2000, 'hello')
+// })
+// Promise.all([p1, p2, p3]).then((data) => console.log(data)).catch((error) => console.log(error))
+
+
+// let p1 = Promise.resolve(121)
+// let p2 = 21
+// let p3 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 3000, 'Good Morning')
+// })
+// let p4 = 25
+
+// Promise.all([p1, p4, p3, p2]).then((data) => console.log(data))//['Good Morning',21,121]
+//     .catch((error) => console.log(error))//121
 
 
 
@@ -1198,19 +1463,296 @@ console.log(positiveNumbers(nums));*/
 
 
 
+// const { error } = require("console")
+// let fs= require("fs")
+// fs.readFile("",(error)=>{
+//     if(error) throw error
+//     console.log("opend a file");
+
+// })
+
+
+// let http = require("http")
+// let fs = require("fs")
+// http.createServer((request, response) => {
+//     fs.readFile("work.html", (error, data) => {
+//         response.write(data)
+//         response.end();
+//     })
+// }).listen(3000)
+
+// console.log("hello");
+
+// setTimeout(()=>{
+//     console.log("setTimeout")
+// },)
+// setImmediate(()=>{
+//     console.log("setImmediate")
+// })
+// process.nextTick(()=>{
+//     console.log("nextTick")
+// })
+
+// const EventEmitter = require('node:events');
+
+// const eventEmitter = new EventEmitter();
+
+
+// eventEmitter.on('start', number => {
+//     console.log(`started ${number}`);
+//   });
+
+//   eventEmitter.emit('start', 23);
+
+
+
+// const fs = require('fs');
+
+// const readableStream = fs.createReadStream('work.html', { encoding: 'utf8' });
+
+// readableStream.on('data', chunk => {
+//     console.log('Reading chunk:', chunk);
+// });
+
+// readableStream.on('end', () => {
+//     console.log('Finished reading the file.');
+// });
+
+// const fs = require('fs');
+
+// const writableStream = fs.createWriteStream('output.txt');
+
+// writableStream.write('Hello, ');
+// writableStream.write('World!');
+// writableStream.end(); // Closes the stream and finalizes the output
+
+
+//  /const fs = require('fs');
+// fs.unlink("output.txt", (error) => {
+//     if (error) throw error;
+//     console.log("file has been deleted");
+// })
+
+
+// const net = require('net');
+
+// const socket = net.createConnection({ port: 8080 }, () => {
+//     console.log('Connected to server!');
+//     socket.write('Hello, Server!');
+// });
+
+// socket.on('data', data => {
+//     console.log('Received from server:', data.toString());
+//     socket.end()
+// });
+
+// socket.on('error', (err) => {
+//     console.error('Connection error:', err.message);
+// });
+// socket.on('end', () => {
+//     console.log('Connection ended by server.');
+// });
+
+
+// const fs = require('fs');
+
+// const readStream = fs.createReadStream('output.txt', { encoding: 'utf8' });
+
+// readStream.on('data', (chunk) => {
+//     console.log('Received chunk:', chunk);
+// });
+
+// readStream.on('end', () => {
+//     console.log('Stream finished');
+// });
+
+// readStream.on('error', (err) => {
+//     console.log('Error:', err);
+// });
+
+// const fs = require('fs');
+// const zlib = require('zlib');
+
+// // Read a file, compress it, and then save the compressed file
+// const readStream = fs.createReadStream('input.txt');
+// const writeStream = fs.createWriteStream('output.txt.gz');
+// const gzip = zlib.createGzip();
+
+// readStream.pipe(gzip).pipe(writeStream);
+
+// const fs = require('fs');
+
+// console.log("Before reading the file");
+
+// const data = fs.readFileSync('output.txt', 'utf8');  // Synchronous read
+
+// console.log("After reading the file");
+// console.log("File contents:", data);
+
+// const fs = require('fs');
+
+// console.log("Before reading the file");
+
+// fs.readFile('output.txt', 'utf8', (err, data) => {  // Asynchronous read
+//   if (err) {
+//     console.log('Error reading file:', err);
+//     return;
+//   }
+//   console.log("File contents:", data);
+// });
+
+// console.log("After initiating file read");
+
+
+// const { fork } = require('child_process');
+
+// // Fork a child process that will run child.js
+// const child = fork('child.js');
+
+// // Sending a message to the child process
+// child.send({ message: 'Hello from parent' });
+
+// // Receiving a message from the child process
+// child.on('message', (msg) => {
+//   console.log('Received from child:', msg);
+// });
+
+// // Handling child process errors
+// child.on('error', (err) => {
+//   console.error('Error in child process:', err);
+// });
+
+// // Handling child process exit
+// child.on('exit', (code) => {
+//   console.log(`Child process exited with code ${code}`);
+// });
+
+
+// const async_hooks = require('async_hooks');
+// const fs = require('fs');
+
+// const hook = async_hooks.createHook({
+//   init(asyncId, type, triggerAsyncId, resource) {
+//     fs.writeSync(1, `Async Hook Init: ${type} - ${asyncId}\n`);
+//   },
+//   before(asyncId) {
+//     fs.writeSync(1, `Before async resource with ID: ${asyncId}\n`);
+//   },
+//   after(asyncId) {
+//     fs.writeSync(1, `After async resource with ID: ${asyncId}\n`);
+//   },
+//   destroy(asyncId) {
+//     fs.writeSync(1, `Async resource with ID ${asyncId} destroyed\n`);
+//   }
+// });
+
+// hook.enable();
+
+// // Example async operation
+// setTimeout(() => {
+//   console.log('Timeout completed');
+// }, 1000);
+
+
+// console.log(__filename)
+
+
+//var buf=new Buffer(10)
+// var buf = new Buffer([10, 20, 30, 40, 50]);
+
+// var buf = new Buffer("Simply Easy Learning", "utf-8");   
+// console.log(buf)
+
+
+// console.log("just log");
+
+// setImmediate(()=>{
+//     console.log("Immediate")
+// })
+
+// setTimeout(()=>{
+// console.log("Timeout")
+// },1000)
+
+// process.nextTick(()=>{
+// console.log("nextTick")
+// })
+
+// const EventEmitter = require("node:events")
+// const eventEmitter = new EventEmitter()
+
+// eventEmitter.on('start', () => {
+//     console.log("started")
+// })
+
+// eventEmitter.emit("start")
+
+// eventEmitter.removeListener("start", () => {
+//     console.log("ended")
+// })
+// eventEmitter.emit("start")
+// const EventEmitter = require('events');
+
+// const emitter = new EventEmitter();
+
+// // Create a function to handle the event
+// function onFoo() {
+//   console.log('foo event fired');
+// }
+
+// // Register the event listener
+// emitter.on('foo', onFoo);
+
+// // Trigger the 'foo' event
+// emitter.emit('foo');
+
+// // Remove the event listener
+// emitter.removeListener('foo', onFoo);
+
+// // Trigger the 'foo' event again
+// emitter.emit('foo'); // No output because the listener was removed
+
+// let fs = require("fs")
+// let zlib = require("zlib")
+
+// let readStream = fs.createReadStream("input.txt");
+// let writeStream = fs.createWriteStream("output.txt.gz")
+
+// let gzip = zlib.createGzip();
+
+// readStream.pipe(gzip).pipe(writeStream)
 
 
 
 
 
+// setTimeout(() => {
+//     console.log("hello")
+// }, 2000);
+
+
+//Throttling
+// let lastExecutedTime = 0;
+// function throttledFunction() {
+//     const now = Date.now();
+//     if (now - lastExecutedTime > 500) { // Execute at most every 500ms
+//         console.log("Action executed");
+//         lastExecutedTime = now;
+//     }
+// }
+// throttledFunction()
 
 
 
-
-
-
-
-
+//Debouncing
+// let timeoutId;
+// function debouncedFunction() {
+//   clearTimeout(timeoutId);
+//   timeoutId = setTimeout(() => {
+//     console.log("Action executed after delay");
+//   }, 300); // 300ms delay
+// }   
+// debouncedFunction()
 
 
 

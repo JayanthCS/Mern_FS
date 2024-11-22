@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <h1 id="main"></h1>
+    <!-- <h1 id="main"></h1>
     <script>
 
         let a = [[1, 2, 3],
@@ -28,7 +28,22 @@
             }
         }
 
+    </script> -->
+
+    <form id="myForm">
+        <input type="text" name="username" value="john_doe">
+        <input type="file" name="profile_picture">
+       
+    </form>
+    
+    <script>
+        const form = document.getElementById('myForm');
+        const formData = new FormData(form);
+    
+        console.log([...formData.entries()]);
+        // Output: [["username", "john_doe"], ["profile_picture", File]]
     </script>
+    
 </body>
 
 </html>
