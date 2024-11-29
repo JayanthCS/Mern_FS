@@ -4,7 +4,7 @@
 // var x = 5;
 // console.log(x); // 5
 
-const { log } = require("console")
+const { log, error } = require("console")
 
 // const { log } = require("console")
 
@@ -18,7 +18,7 @@ div.appendChild(child)
 let element = document.getElementById("div1")
 element.appendChild(div)
 //div.removeChild(child)
-
+ 
 function myFunc() {
     document.getElementById("myBtn").style.backgroundColor = "red"
     document.getElementById("myBtn").style.color = "white"
@@ -32,12 +32,12 @@ events.addEventListener("click", myFunc)*/
     this.name = name
     this.age = age
 }
-
+ 
 myFunc.prototype.deatils = function()  {
    console.log(this.age);
    console.log(this.name);
 }
-
+ 
  let s1=new myFunc("Jayanth",25)
 s1.deatils()*/
 
@@ -60,9 +60,9 @@ promiseFunc().then((data)=>{console.log(data)})*/
             resolve("Successes")
         },2000)
     })
-
+ 
 }
-
+ 
 getData(1).then(() => { return getData(2) }).then(() => { return getData(3) }).then((res) => { console.log(res) })*/
 
 //callback hell
@@ -74,7 +74,7 @@ getData(1).then(() => { return getData(2) }).then(() => { return getData(3) }).t
         }
     }, 2000)
 }
-
+ 
 getData(1, () => { getData(2, () => { getData(3, () => { console.log("done") }) }) })*/
 
 //Async and Await
@@ -87,15 +87,15 @@ getData(1, () => { getData(2, () => { getData(3, () => { console.log("done") }) 
         }, 2000);
     });
 }
-
+ 
 async function gettingData() {
     await getData(1)
     await getData(2)
     await getData(3)
-
+ 
 }
 gettingData()
-
+ 
 function api() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -104,7 +104,7 @@ function api() {
         }, 6000);
     });
 }
-
+ 
 async function getWeatherData() {
     await api()
     await api()
@@ -149,7 +149,7 @@ sumOfEven(array)*/
 /*function factorial(n) {
     let fact = 1
     for (let index = 1; index <= n; index++) {
-
+ 
         console.log(index)
         fact = fact * index
     }
@@ -169,7 +169,7 @@ function findLongestword(words) {
     return longestwWord
 }
 console.log(findLongestword(fruits));
-
+ 
 //common elements
 function printCommonElements(array) {
     let common = new Set()
@@ -185,7 +185,7 @@ function printCommonElements(array) {
 }
 let arr = [1, 3, 2, 1, 2, 3, 4, 5, 6, 4, 5, 6]
 console.log(printCommonElements(arr));
-
+ 
 function positiveNumbers(array) {
     let sum=0
     for (let i = 0; i < array.length; i++) {
@@ -1753,6 +1753,91 @@ console.log(positiveNumbers(nums));*/
 //   }, 300); // 300ms delay
 // }   
 // debouncedFunction()
+
+
+
+
+//Streams
+// let fs= require("fs")
+// let writeStream=fs.createWriteStream("newText.txt")
+
+// writeStream.write("hello world!!!")
+// writeStream.write("Today is wednesday!!")
+
+// writeStream.on("end",()=>{
+//     console.log("Finished writin to a file");
+// })
+
+// writeStream.on("finish",()=>{
+//     console.log("Finished")
+// })
+
+
+
+// console.log("Hello")
+// setTimeout(()=>{
+// console.log("hellooo")
+// },2000)
+// console.log("Heloooooo")
+
+
+// let express=require("express")
+// let app=express.Router()
+
+// app.post(()=>{
+
+// })
+
+
+// let url = 'http://localhost:3000/api/get_product/1'
+
+// fetch(url)
+
+//     .then(res => res.json())
+//     .then(json => console.log(json))
+
+//     .then(data => { console.log(data) })
+//     .then(error => { console.log(error) })
+
+
+
+
+// fetch('https://fakestoreapi.com/products/1')
+//     .then(res => res.json())
+//     .then(json => console.log(json))
+
+
+
+// let string = "            a           for              apple                          a                   b"
+// console.log(string.trimStart(string))
+
+
+// function func(name,age=20){
+//       console.log(name,age)
+// }
+
+// func("jay")
+
+
+// let num=[1,3,4,5,"Jay"]
+// let array=num.find(el=>typeof(el)=="string")
+// console.log(array)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

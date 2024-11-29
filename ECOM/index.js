@@ -1,6 +1,8 @@
 let express = require("express")
 let app = express()
 
+app.use("/Images", express.static(__dirname + "/Images"))
+
 let customer = require("./customer")
 let home = require("./home")
 let api = require("./api")

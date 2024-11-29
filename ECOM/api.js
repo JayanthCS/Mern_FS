@@ -38,7 +38,8 @@ router.post("/register", urlencodedParser, function (req, res) {
 
 router.post("/login", urlencodedParser, function (req, res) {
 
-    connection.connect();
+
+    console.log("req.body.customer_type==>", req.body.customer_type, req.body.password)
     let qry_str = `SELECT name FROM info  WHERE email='${req.body.email}' AND password='${req.body.password}'`
 
     if (req.body.customer_type == "vendor") {
@@ -59,7 +60,7 @@ router.post("/login", urlencodedParser, function (req, res) {
         }
 
     });
-    connection.end();
+
 })
 
 
@@ -68,31 +69,40 @@ router.post("/add_product", (req, res, next) => {
 
     form.parse(req, (err, fields, files) => {
         if (err) throw err;
-        res.json({ fields, files });
-
-
-
-        connection.connect()
-        let qry_str = `INSERT INTO product(p_name,price,quantity,description,image) values('${fields.product_name}','${fields.price}','${fields.quantity}','${fields.description}','${fields.image}')`
-
+        file = files.image[0].filepath
+        new_file_path = "Images/" + files.image[0].originalFilename
+        let qry_str = `INSERT INTO product(p_name,price,quantity,description,image) values('${fields.product_name}','${fields.price}','${fields.quantity}','${fields.description}','${new_file_path}')`
         connection.query(qry_str, function (error, results, fields) {
             if (error) throw error;
             console.log(results);
         });
-
-        file = files.image[0].filepath
-        new_file_path = "Images/" + files.image[0].originalFilename
-
-        fs.rename(file, new_file_path, (error) => {
+        connection.end();
+        fs.copyFile(file, new_file_path, (error) => {
             if (error) throw error;
             console.log("file has been uploaded!!");
-        })
-        connection.end();
-
-
+            res.send("File uploaded Successfully");
+        });
 
     });
 });
+
+
+router.get("/get_product", (req, res, next) => {
+    let qry_str = `SELECT * FROM product;`
+    connection.query(qry_str, (error, results, field) => {
+        if (error) throw error;
+        res.send(JSON.stringify(results))
+    })
+})
+
+router.get("/get_product/:id", (req, res, next) => {
+    let qry_str = `SELECT * FROM product WHERE Id=${req.params.id};`
+    connection.query(qry_str, (error, results, field) => {
+        if (error) throw error;
+        res.send(JSON.stringify(results))
+    })
+})
+
 module.exports = router
 
 
