@@ -13,12 +13,17 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
-        tr:nth-child(odd){
+
+        tr:nth-child(odd) {
             background-color: yellow;
         }
 
+        #demoo:hover{
+            color: red;
+            font-family: 'Courier New', Courier, monospace;
+        }
     </style>
-
+    <link rel="stylesheet" href="">
 </head>
 
 <body>
@@ -82,13 +87,13 @@
 
     <!-- <div id="div">hi</div> -->
 
-    <p id="demo" style="color: blue;">hello</p>
+    <p id="demo" style="color: yellow;">hello</p>
 
     <div id="myId">div</div>
 
     <p id="para"></p>
 
-    <H1>HELLO</H1>
+    <H1 id="demoo">HELLO</H1>
 
     <jayanth>HI</jayanth>
 
@@ -128,7 +133,38 @@
         </tr>
     </table>
 
+
+    <form>
+        <select name="country" id="country">
+            <option value="select" hidden>select</option>
+            <option value="karnataka">karnataka</option>
+            <option value="Tamil-Nadu">Tamil-Nadu</option>
+            <option value="Kerla">Kerla</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+    </form>
+
+
+    <form action="">
+        <input type="radio" name="css" id="radio">css <br>
+        <input type="radio" name="html" id="radio">html <br>
+        <input type="radio" name="js" id="radio">js
+    </form><br><br><br>
+
+
+    <form action="">
+        <input type="radio" name="css" id="radio">css <br>
+        <input type="radio" name="html" id="radio">html <br>
+        <input type="radio" name="js" id="radio">js
+
+    </form>
+
+    <form action="">
+        <input type="file" name="" id="">
+    </form>
     <script src="work.js"></script>
+
+    <div style="height: 200px; width: 200px; background-color: bisque; margin: auto; text-align: center;"><div style="padding-top: 100px;"> hello world</div></div>
 </body>
 
 </html>

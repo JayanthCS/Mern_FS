@@ -5,6 +5,8 @@
 // console.log(x); // 5
 
 const { log, error } = require("console")
+const { prototype } = require("events")
+const { resolve } = require("path")
 
 // const { log } = require("console")
 
@@ -18,7 +20,7 @@ div.appendChild(child)
 let element = document.getElementById("div1")
 element.appendChild(div)
 //div.removeChild(child)
- 
+
 function myFunc() {
     document.getElementById("myBtn").style.backgroundColor = "red"
     document.getElementById("myBtn").style.color = "white"
@@ -32,12 +34,12 @@ events.addEventListener("click", myFunc)*/
     this.name = name
     this.age = age
 }
- 
+
 myFunc.prototype.deatils = function()  {
    console.log(this.age);
    console.log(this.name);
 }
- 
+
  let s1=new myFunc("Jayanth",25)
 s1.deatils()*/
 
@@ -60,9 +62,9 @@ promiseFunc().then((data)=>{console.log(data)})*/
             resolve("Successes")
         },2000)
     })
- 
+
 }
- 
+
 getData(1).then(() => { return getData(2) }).then(() => { return getData(3) }).then((res) => { console.log(res) })*/
 
 //callback hell
@@ -74,7 +76,7 @@ getData(1).then(() => { return getData(2) }).then(() => { return getData(3) }).t
         }
     }, 2000)
 }
- 
+
 getData(1, () => { getData(2, () => { getData(3, () => { console.log("done") }) }) })*/
 
 //Async and Await
@@ -87,15 +89,15 @@ getData(1, () => { getData(2, () => { getData(3, () => { console.log("done") }) 
         }, 2000);
     });
 }
- 
+
 async function gettingData() {
     await getData(1)
     await getData(2)
     await getData(3)
- 
+
 }
 gettingData()
- 
+
 function api() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -104,7 +106,7 @@ function api() {
         }, 6000);
     });
 }
- 
+
 async function getWeatherData() {
     await api()
     await api()
@@ -134,13 +136,13 @@ console.log(camelToSnake("jayanthFullStack"));*/
 //sum of even numbers
 /*function sumOfEven(array) {
     let sum = 0;
-  
+
     for (let num of array) {
         if (num % 2 == 0) {
            sum =sum+num
         }
     }
-    console.log(sum) 
+    console.log(sum)
 }
 let array=[1,2,3,4,5,6,7,8,9]
 sumOfEven(array)*/
@@ -149,7 +151,7 @@ sumOfEven(array)*/
 /*function factorial(n) {
     let fact = 1
     for (let index = 1; index <= n; index++) {
- 
+
         console.log(index)
         fact = fact * index
     }
@@ -169,7 +171,7 @@ function findLongestword(words) {
     return longestwWord
 }
 console.log(findLongestword(fruits));
- 
+
 //common elements
 function printCommonElements(array) {
     let common = new Set()
@@ -185,17 +187,17 @@ function printCommonElements(array) {
 }
 let arr = [1, 3, 2, 1, 2, 3, 4, 5, 6, 4, 5, 6]
 console.log(printCommonElements(arr));
- 
+
 function positiveNumbers(array) {
     let sum=0
     for (let i = 0; i < array.length; i++) {
         if (array[i] > 0) {
             positiveNum = array[i]
-          
+
             sum=sum+positiveNum
         }
     }
-   return sum  
+   return sum
 }
 let nums=[1,2,-3,-4,3,4]
 console.log(positiveNumbers(nums));*/
@@ -279,18 +281,18 @@ console.log(positiveNumbers(nums));*/
 // let y = 9;
 // console.log(Math.pow(9,0.5));
 
-// //let string = `Ancient manuscripts also divided sentences into paragraphs 
+// //let string = `Ancient manuscripts also divided sentences into paragraphs
 //               with line breaks (newline) followed by an initial at the beginning of the next paragraph.
-//               An initial is an oversized capital letter, sometimes outdented beyond the margin of the text. 
+//               An initial is an oversized capital letter, sometimes outdented beyond the margin of the text.
 //               This style can be seen, for example, in the original Old English manuscript of Beowulf.
 //               Outdenting is still used in English typography, though not commonly.
 //               [2] Modern English typography usually indicates a new paragraph by indenting the first line.
-//               This style can be seen in the (handwritten) United States Constitution from 1787. 
+//               This style can be seen in the (handwritten) United States Constitution from 1787.
 //               For additional ornamentation, a hedera leaf or other symbol can be added to
 //               the inter-paragraph white space, or put in the indentation space.`
 
 
-//console.log(string.toLocaleUpperCase());  
+//console.log(string.toLocaleUpperCase());
 //console.log(string.substr(2,10));//from 2 index to total character of 10
 //console.log(string.substring(2,10));//starting from 2 index to ending at 10 index
 //console.log(string.split(''));
@@ -380,7 +382,7 @@ console.log(positiveNumbers(nums));*/
 // let i = 0
 // while (i < 10) {
 //     text = text + i
-//     i++   
+//     i++
 // }
 
 
@@ -604,7 +606,7 @@ console.log(positiveNumbers(nums));*/
 // let arr1=[1,2,3]
 // let arr2=[4,5,6]
 // let combined_array=[...arr1,...arr2]
-// console.log(combined_array);  
+// console.log(combined_array);
 
 
 // let array=[7,8,9,[4,5,6,[1,2,3]]]
@@ -716,7 +718,7 @@ console.log(positiveNumbers(nums));*/
 // function flattenArray(array) {
 //     let result = []
 //     for (let item of array) {
-//         console.log(item); 
+//         console.log(item);
 //         if (Array.isArray(item)) {
 //             result = result.concat(flattenArray(item))
 //         }else{
@@ -821,7 +823,7 @@ console.log(positiveNumbers(nums));*/
 // class Car extends Vehicle {
 //     constructor(brand,price,name) {
 //         super(brand, price)
-//         this.name = name 
+//         this.name = name
 //     }
 // }
 
@@ -924,9 +926,9 @@ console.log(positiveNumbers(nums));*/
 
 // let array1 = [{ name: "Jayanth", age: 24 }, { name: "Karthik", age: 22 }]
 
-// let y=array1.map((el) => 
+// let y=array1.map((el) =>
 //     el.name
-//     // console.log(el.name); 
+//     // console.log(el.name);
 //  );
 //  console.log(y);
 
@@ -1100,7 +1102,7 @@ console.log(positiveNumbers(nums));*/
 // }
 // console.log(minAndMax(array));
 
-//factorial 
+//factorial
 
 // function factorial(n) {
 //     let fact=1;
@@ -1223,7 +1225,7 @@ console.log(positiveNumbers(nums));*/
 // (function() {
 //     var a = b = 5;
 //   })();
-//   console.log(typeof a); 
+//   console.log(typeof a);
 //   console.log(typeof b);
 
 //   let a = [1, 2, 3];
@@ -1291,7 +1293,7 @@ console.log(positiveNumbers(nums));*/
 
 
 // try {
-//    console.log(hello) 
+//    console.log(hello)
 // } catch (error) {
 //    console.log(error);
 // }
@@ -1660,7 +1662,7 @@ console.log(positiveNumbers(nums));*/
 //var buf=new Buffer(10)
 // var buf = new Buffer([10, 20, 30, 40, 50]);
 
-// var buf = new Buffer("Simply Easy Learning", "utf-8");   
+// var buf = new Buffer("Simply Easy Learning", "utf-8");
 // console.log(buf)
 
 
@@ -1751,7 +1753,7 @@ console.log(positiveNumbers(nums));*/
 //   timeoutId = setTimeout(() => {
 //     console.log("Action executed after delay");
 //   }, 300); // 300ms delay
-// }   
+// }
 // debouncedFunction()
 
 
@@ -1822,6 +1824,443 @@ console.log(positiveNumbers(nums));*/
 // let num=[1,3,4,5,"Jay"]
 // let array=num.find(el=>typeof(el)=="string")
 // console.log(array)
+
+
+// let noOfWheels=10;
+// switch (noOfWheels) {
+//     case 10:
+//         console.log("it is a 10 whell vehicle")
+//         break;
+
+//     default:console.log("invalid")
+//         break;
+// }
+
+// let array=[4,6,2,3,10,8,9,6,7]
+// console.log(array.sort())
+
+// let i=0
+// let text="";
+// while (i < 6) {
+//     text = text + i
+//     i++
+// // }
+// console.log(text)
+
+// do{
+//     text=text+i
+//     i++;
+// }while(i<10)
+// console.log(text)
+
+
+// function first() {
+//     let a = 10
+//     function second() {
+//         console.log(a)
+//     }
+//    console.log(second);
+// }
+// // let closures=first()
+// // closures()
+// first()
+
+
+
+//call()
+// let Person={
+//     fullName:function (){
+//         return this.firstName+" "+this.secondName;
+//     }
+// }
+
+// let person1={
+//     firstName:"jay",
+//     secondName:"cs"
+// }
+// let fullName=Person.fullName.call(person1)
+// // console.log(Person.fullName.bind(person1))//you should assign it a variable and call tha variable
+//  console.log(fullName())//error
+
+
+
+// function outer() {
+//     let x="Jayanth"
+//     function inner() {
+//         console.log(x)
+//     }
+//     return inner;
+// }
+
+// let closures=outer()
+// closures()
+
+
+
+// class Student {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     static detals() {
+//         return this.name + " " + this.age;
+//     }
+// }
+
+
+// let student = new Student("Jayanth", 25)
+
+// console.log(student.detals())//detals is not a function error because the detail method is static
+
+
+//callbackhell
+// function getData(dataId, nextData) {
+//     setTimeout(() => {
+//         console.log(dataId)
+//         if (nextData) {
+//             nextData()
+//         }
+//     }, 2000)
+// }
+
+// getData(1, () => {
+//     getData(2, () => {
+//         getData(3, () => { console.log("success") })
+//     })
+// })
+
+//callbackhell to promises to promise chaining
+
+// function getData(dataId) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log(dataId)
+//             resolve("success")
+//         }, 2000)
+//     })
+// }
+// getData(1).then((res) => { return getData(2) })
+//     .then((res => { return getData(2) }))
+//     .then((res => { return getData(3) }))
+//     .then((res => { return getData(res) }))
+
+
+//Async and await
+
+//  function getData(dataId) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("getting data",dataId)
+//             resolve("success")
+//         }, 2000)
+//     })
+// }
+// async function gettingData() {
+//     await getData(1)
+//     await getData(2)
+//     // await getData(3)
+//     // await getData(4)
+//     console.log("success")
+// }
+// gettingData()
+
+
+// prototype chaining
+
+// let student = function (name, birthYear) {
+//     this.birthYear = birthYear;
+//     this.name = name
+// }
+
+// student.prototype.age = function () {
+//     return (new Date().getFullYear() - this.birthYear)
+// }
+
+// let jay=new student("Jayanth",1999)
+// console.log(jay.age())
+
+
+
+//Programming Questions
+
+//isPalindrome
+// function isPalindrome(string) {
+//     let normalString = string.toLowerCase()
+//     let reversedStr = normalString.split("").reverse().join("");
+//     return reversedStr === normalString
+// }
+// console.log(isPalindrome("Wow"))
+
+//sum of positive
+// let numbers = [1, 3, 4, 7, -2, -5, -7]
+// function sumOfPositiveNumbers(num) {
+//     let positiveNumbers = num.filter(el => el > 0)
+//     let sum = positiveNumbers.reduce((acc, total) =>  acc + total, 0 )
+//     return sum
+// }
+// console.log(sumOfPositiveNumbers(numbers));
+
+
+//remove duplicates from an array
+
+// let array = [2, 4, 2, 4, 1, 5, 1, 6, 7, 8, 5, 7]
+// function removeDuplicates(arr) {
+//     return [...new Set(arr)]
+// }
+// console.log(removeDuplicates(array.sort()));
+
+//Reverse a string
+// function reverseString(string) {
+//     let reversedStr = ""
+//     for (let index = string.length - 1; index >= 0; index--) {
+//          reversedStr = reversedStr + string[index];
+//     }
+//     return reversedStr;
+// }
+
+// console.log(reverseString("hello"));
+
+
+//min and max
+// let numbers = [3, 1, 6, 7, 8, 4, 9]
+// function minAndMax(array) {
+//     let min = array[0]
+//     let max = array[0]
+
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] < min) {
+//             min = array[i]
+//         } if (array[i] > max) {
+//             max = array[i]
+//         }
+//     }
+//     return { min, max }
+// }
+// log(minAndMax(numbers))
+
+
+//factorial
+// function factorial(n) {
+//     let fact = 1;
+//     for (let i = 1; i <= n; i++) {
+//         fact = fact * i
+//     }
+//     return fact;
+// }
+// console.log(factorial(3))
+
+//count
+// let fruits = ["Apple", "grapes", "Apple", "grapes", "bananna", "orange"]
+// function countOccurance(array) {
+//     let countMap = {};
+//     array.forEach(element => {
+//         if (countMap[element]) {
+//             countMap[element]++
+//         }
+//         else {
+//             countMap[element] = 1
+//         }
+//     });
+//     return countMap;
+// }
+// console.log(countOccurance(fruits));
+
+
+//Fibonacci
+
+// function printFibonacci(n) {
+//     let a = 0, b = 1;
+//     console.log("Fibonacci series")
+//     for (let i = 0; i < n; i++) {
+//         console.log(a)
+//         next = a + b;
+//         a = b;
+//         b = next
+//     }
+// }
+// console.log(printFibonacci(10));
+
+
+//print common
+// function printCommonElements(array) {
+//     let unique = new Set()
+//     let common = new Set()
+//     for (let num of array) {
+//         if (unique.has(num)) {
+//             common.add(num)
+//         } else {
+//             unique.add(num)
+//         }
+//     }
+//     console.log(Array.from(common).join(","))
+// }
+// printCommonElements([1, 2, 3, 4, 5, 1, 3])
+
+//largest word in an array
+
+// function largestWord(word) {
+//     let longestWord = word[0];
+//     for (let i = 1; i < word.length; i++) {
+//         if (word[i].length > longestWord.length) {
+//             longestWord = word[i]
+//         }
+//     }
+//     return longestWord;
+// }
+// let arr = ["jay", "jayanth"]
+// console.log(largestWord(arr))
+
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+// let string = "Below is a list of Non-primitive data types"
+// let string1="Non-primitive data types"
+// console.log(string.repeat(2))
+
+
+// let num = 1
+// console.log(string*num)
+
+// function sum() {
+//     console.log(arguments)
+// }
+// sum(1, 3)
+
+
+
+// array.forEach(element => {
+
+// });
+
+
+//Structuring
+// name = "Jayanth";
+// email = "jayanth@gmail.com";
+// address = "Cheeranahalli";
+
+// let x = [name, email, address]
+// console.log(x);
+
+// let rohits_data = ["Rohit", "rohit@gmail.com", "batting", "fielding", "captain"]
+// let [name, email, ...skills] = rohits_data
+// console.log(skills);
+
+
+
+// let fruits = new Map([["apples", 200], ["Grapes", 50]])
+// console.log(fruits);
+
+
+
+
+
+
+
+
+
+
+// let count=10;
+// counting(count>5)?console.log("the value is greater than 5"):console.log("the value is less than 5")
+
+
+// let a = [1, 2, 3, 4]
+// console.log(a.length-1);
+// console.log(a[3])
+
+
+// console.log(a.[length-1])
+
+// function sort(array){
+
+// }
+
+// let a1 = [5, 6, 7, 8]
+
+// console.log(a.concat(a1))
+// let combinedArray = [...a, ...a1]
+// console.log(combinedArray)
+
+
+// function fibonacci(n) {
+//     let a = 0, b = 1;
+//     for (let i = 0; i < n; i++) {
+//         console.log(a)
+//         let next = a + b;
+//         a = b;
+//         b = next
+//     }
+// }
+// fibonacci(12)
+
+
+// function factorial(n) {
+
+//     let fact = 1;
+//     for (let i = 1; i <= n; i++) {
+//         fact = fact * i
+//     }
+//     return fact
+// }
+// console.log(factorial(12))
+
+
+// let a = [1, 2, 3, 4]
+// function sorting(arr) {
+
+//     let min1 = Infinity;
+//     let min2 = Infinity;
+
+//     for (let num of arr) {
+//         if (num < min1) {
+//             min2 = min1
+//             min1 = num
+//         } else if (num < min2 && num !== min1) {
+//             min2 = num
+//         }
+//     }
+//     return min2
+// }
+// console.log(sorting(a))
+
+
+
+// let http = require("http")
+// let fs = require("fs")
+
+// let express = require("express")
+// let app = express()
+
+// app.use("")
+
+// http.createServer((request, response) => {
+
+
+
+// }).listen(3000)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
