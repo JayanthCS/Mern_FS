@@ -22,11 +22,26 @@ router.post("/register", urlencodedParser, function (req, res) {
     let qry_str = `INSERT INTO user_entry(f_name,l_name,Age,mobile_no,email,password) values ('${req.body.fname}','${req.body.lname}','${req.body.age}','${req.body.mobile_num}','${req.body.email}','${req.body.password}')`
     connection.query(qry_str, function (error, result, field) {
         if (error) throw error;
-       // console.log('The solution is: ', result[0].solution);
+        // console.log('The solution is: ', result[0].solution);
     })
     connection.end()
     res.send('Hi, ' + req.body.fname + '<br> you have been successfully Registerd')
 })
+
+
+router.get("/get_info", function (req, res) {
+   // connection.connect()
+    let qry_str = `SELECT * FROM user_entry`
+    connection.query(qry_str, function (error, result, field) {
+        if (error) throw error;
+        res.send(JSON.stringify(result))
+    })
+   
+   // connection.end()
+   
+})
+
+
 
 
 
