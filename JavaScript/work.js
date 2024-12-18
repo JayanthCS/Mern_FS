@@ -2258,6 +2258,27 @@ console.log(positiveNumbers(nums));*/
 
 
 
+let count=10
+
+// if(count<15){
+// console.log("yes");
+// }else if(){
+//     console.log("no")
+// }else{
+
+// }
+
+// switch(count){
+
+//     case 1:console.log("count is 1");
+//     break;
+//     case 10:console.log("count is 10")
+//     break;
+//     default : console.log("invalid")
+//     break;
+// }
+
+// count>5?console.log("number is greater than 5"):console.log("less than 5")
 
 
 
