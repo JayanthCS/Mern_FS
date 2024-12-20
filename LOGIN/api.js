@@ -1,14 +1,18 @@
-let express = require("express")
+// let express = require("express")
+import  express  from "express";
 let router = express.Router()
-var bodyParser = require("body-parser")
+// var bodyParser = require("body-parser")
+import  bodyParser  from "body-parser";
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
-module.exports = router;
+// module.exports = router;
+export default router;
 
+// let mysql = require("mysql")
 
-let mysql = require("mysql")
+import mysql from "mysql"
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',

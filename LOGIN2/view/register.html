@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    input[type=text],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=number],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=tel],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=email],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=password],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    /* div {
+
+        background-color: #f2f2f2;
+
+    } */
+
+    .container {
+        margin-left: 200px;
+        margin-right: 1000px;
+        width: 100%;
+    }
+
+    .row {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b9516b;" class="position-fixed">
+        <div class="container-fluid" class="fixed-top">
+            <a href=""> <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1c7WpsqZNOpm9SnpoRkOtPVzEADlN2NlmLQ&s"
+                    alt="User Login" width="100%" height="50px"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div>
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <h3 style="text-align: center;">Register here</h3>
+                <div class="m-3">
+                    <form method="post" action="/api/register" enctype="multipart/form-data">
+
+
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" placeholder="your first name" required><br>
+                        <span id="br" style="color: red;"></span><br>
+
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" placeholder="your last name"><br>
+                        <span id="br1" style="color: red; "></span><br>
+
+                        <label for="mobile_num">Mobile Number</label>
+                        <input type="tel" id="mobile_num" name="mobile_num" placeholder="your mobile number"><br>
+                        <span id="br2" style="color: red; "></span><br>
+
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" placeholder="your email"><br>
+                        <span id="br3" style="color: red; "></span><br>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="your password"><br>
+                        <span id="br4" style="color: red; "></span><br>
+
+                        <!-- <label for="file">Upload a image</label> -->
+                        <input type="file" name="file" id="file"><br>
+                        <span id="br5" style="color: red; "></span><br>
+
+                        <input type="submit" value="login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        //validation of input forms
+        //fname validation
+        document.getElementById("fname").addEventListener("mouseout", function () {
+            const errorMessage = document.getElementById("br")
+            const fname = document.getElementById("fname").value
+            if (fname.length < 3) {
+                errorMessage.innerHTML = "character must be greater than 3"
+            } else {
+                errorMessage.innerHTML = ""
+            }
+        })
+
+        //lname Validation
+        document.getElementById("lname").addEventListener("mouseout", function () {
+            const errorMessage = document.getElementById("br1")
+            const fname = document.getElementById("lname").value
+            if (fname.length < 2) {
+                errorMessage.innerHTML = "character must be greater than 2"
+            } else {
+                errorMessage.innerHTML = ""
+            }
+        })
+
+        //mobile number Validation
+        document.getElementById("mobile_num").addEventListener("mouseout", function () {
+            const errorMessage = document.getElementById("br2")
+            const mobile = document.getElementById("mobile_num").value
+            if (!/^\d{10}$/.test(mobile)) {//^=>starting of string,\d=>matches any digits{0-9},{10}=>specifies exactly 10,$=>end odf the string
+                errorMessage.innerHTML = "Mobile num must be 10 digits"
+            } else {
+                errorMessage.innerHTML = ""
+            }
+        })
+
+
+        //email Validation
+        document.getElementById("email").addEventListener("mouseout", function () {
+            const errorMessage = document.getElementById("br3")
+            const email = document.getElementById("email").value
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+                errorMessage.innerHTML = "Email foramte is wrong"
+            } else {
+                errorMessage.innerHTML = ""
+            }
+        })
+
+        //Password validation
+        document.getElementById("password").addEventListener("mouseout", function () {
+            const errorMessage = document.getElementById("br4")
+            const password = document.getElementById("password").value
+            if (password.length < 6) {
+                errorMessage.innerHTML = "Password must be atleast 6 charachters"
+            } else {
+                errorMessage.innerHTML = ""
+            }
+        })
+
+        //File validation
+        document.getElementById("file").addEventListener("mouseout", function () {
+            const errorMessage = document.getElementById("br5")
+            const file = document.getElementById("file").files[0];
+            if (!file) {
+                alert("Please upload a file");
+                isValid = false;
+            } else if (!file.type.startsWith("image/")) {
+                alert("File must be an image");
+                isValid = false;
+            }
+        })
+
+
+
+
+
+
+
+
+
+        // let fname = function () {
+        //     if (fname.length < 2) {
+        //         alert("first name must be greater than 2 letters")
+        //     } else {
+        //         alert("valid input")
+        //     }
+        // }
+
+        // document.getElementById("br").innerHTML = fname
+
+
+    </script>
+
+
+
+</body>
+
+</html>

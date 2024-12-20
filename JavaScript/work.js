@@ -2258,7 +2258,7 @@ console.log(positiveNumbers(nums));*/
 
 
 
-let count=10
+//let count=10
 
 // if(count<15){
 // console.log("yes");
@@ -2280,7 +2280,13 @@ let count=10
 
 // count>5?console.log("number is greater than 5"):console.log("less than 5")
 
+// let normalized=[1,2,34,5,6,7]
+// hello(normalized)
 
+
+// function hello(data) {
+//   console.log(data)
+// }
 
 
 

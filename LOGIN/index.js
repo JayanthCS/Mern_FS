@@ -1,11 +1,14 @@
-let express = require("express")
+// let express = require("express")
+import  express  from "express";
 let app = express()
 
 
-
-let home = require("./home")
-let search = require("./search")
-let api = require("./api")
+import home from "./home.js"
+import search from "./search.js"
+import api from "./api.js"
+// let home = require("./home")
+// let search = require("./search")
+// let api = require("./api")
 
 
 

@@ -51,7 +51,26 @@
         border-radius: 4px;
         cursor: pointer;
     }
-
+    input[type=email],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=password],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
     input[type=submit]:hover {
         background-color: #45a049;
     }
@@ -121,10 +140,10 @@
                         <input type="tel" id="mobile_num" name="mobile_num" placeholder="your mobile number">
 
                         <label for="email">E-Mail</label>
-                        <input type="text" id="email" name="email" placeholder="your email">
+                        <input type="email" id="email" name="email" placeholder="your email">
 
                         <label for="password">Password</label>
-                        <input type="text" id="password" name="password" placeholder="your password">
+                        <input type="password" id="password" name="password" placeholder="your password">
 
 
                         <input type="submit" value="login">

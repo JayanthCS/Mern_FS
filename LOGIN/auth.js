@@ -1,4 +1,5 @@
-const jwt = require("jsonwebtoken")
+// const jwt = require("jsonwebtoken")
+import  jwt  from "jsonwebtoken";
 
 const payload = { userId: 123, userName: "Jayanth" }
 const secretkey = "Jay@1234";

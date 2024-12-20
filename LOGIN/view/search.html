@@ -17,8 +17,12 @@
             border-collapse: collapse;
         }
 
-        thead{
+        thead {
             background-color: yellow;
+        }
+
+        .search-container {
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -48,19 +52,35 @@
     </nav>
 
     <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search in the table...">
+        </div>
+          <div id="userTableContainer"></div>
         <div class="row" id="user_inf"></div>
     </div>
 </body>
 
-
+<!-- 
 <script>
-    axios({
+   let userData= axios({
         method: 'get',
         url: '/api/get_info/'
     })
         .then(function (response) {
             console.log(response);
             let parsedData = response.data;
+            console.log(parsedData)
+              // Normalize keys to match renderTable expectations
+              var normalizedData = parsedData.map(item => ({
+                    Id: item.Id,
+                    FirstName: item.f_Name,
+                    LastName: item.l_name,
+                    Age: item.Age,
+                    MobileNumber: item.mobile_no,
+                    EmailId: item.email,
+                    Password: item.password
+                }));
+
             let user_inf = document.getElementById('user_inf');
 
             // Start the table structure with a <thead>
@@ -81,16 +101,16 @@
     `;
 
             // Append <tr> rows for each data entry
-            for (let i of parsedData) {
+            for (let i of normalizedData) {
                 tableHTML += `
             <tr>
                 <td>${i.Id}</td>
-                <td>${i.f_Name}</td>
-                <td>${i.l_name}</td>
+                <td>${i.FirstName}</td>
+                <td>${i.LastName}</td>
                 <td>${i.Age}</td>
-                <td>${i.mobile_no}</td>
-                <td>${i.email}</td>
-                <td>${i.password}</td>
+                <td>${i.MobileNumber}</td>
+                <td>${i.EmailId}</td>
+                <td>${i.Password}</td>
             </tr>
             `;
             }
@@ -104,10 +124,161 @@
             // Set the innerHTML of the container
             user_inf.innerHTML = tableHTML;
         })
+
         .catch(function (error) {
             console.error("Error fetching data: ", error);
         });
+
+
+
+
+
+        function renderTable(data) {  
+            let tableHTML = `
+                <table id="userTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Mobile Number</th>
+                            <th>Email Id</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            data.forEach(user => {
+                tableHTML += `
+                    <tr>
+                        <td>${user.Id}</td>
+                        <td>${user.FirstName}</td>
+                        <td>${user.LastName}</td>
+                        <td>${user.Age}</td>
+                        <td>${user.MobileNumber}</td>
+                        <td>${user.EmailId}</td>
+                        <td>${user.Password}</td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            document.getElementById('userTableContainer').innerHTML = tableHTML;
+        }
+
+        // Render the initial table
+        renderTable(userData);
+
+        // Add search functionality
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#userTable tbody tr');
+
+            rows.forEach(row => {
+                const cells = Array.from(row.querySelectorAll('td'));
+                const match = cells.some(cell => cell.textContent.toLowerCase().includes(filter));
+                row.style.display = match ? '' : 'none';
+            });
+        });
+</script> -->
+<script>
+    // Fetch data and render the table
+    axios({
+        method: 'get',
+        url: '/api/get_info/'
+    })
+        .then(function (response) {
+            console.log(response)
+            const parsedData = response.data;
+            console.log(parsedData)
+
+
+            // Normalize keys to match renderTable expectations
+            const normalizedData = parsedData.map(item => ({
+                Id: item.Id,
+                FirstName: item.f_Name,
+                LastName: item.l_name,
+                Age: item.Age,
+                MobileNumber: item.mobile_no,
+                EmailId: item.email,
+                Password: item.password
+            }));
+
+            // Render the table with normalized data
+            renderTable(normalizedData);
+
+            // Add search functionality
+            document.getElementById('searchInput').addEventListener('input', function () {//If you wanted to listen for a different type of interaction, you could change 'input' to another event type like 'click', 'change', 'keydown', etc. But for search functionality, 'input' is the most appropriate because it responds instantly as the user types.
+                const filter = this.value.toLowerCase();
+                const rows = document.querySelectorAll('#userTable tbody tr');
+                rows.forEach(row => {
+                    const cells = Array.from(row.querySelectorAll('td'));
+                    const match = cells.some(cell => cell.textContent.toLowerCase().includes(filter));
+                    row.style.display = match ? '' : 'none';
+                });
+            });
+        })
+        .catch(function (error) {
+            console.error("Error fetching data: ", error);
+        });
+
+    // Function to render the table
+    function renderTable(data) {
+        if (!Array.isArray(data)) {
+            console.error("Provided data is not an array.");
+            return;
+        }
+
+        let tableHTML = `
+            <table id="userTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Mobile Number</th>
+                        <th>Email Id</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        data.forEach(user => {
+            tableHTML += `
+                <tr>
+                    <td>${user.Id}</td>
+                    <td>${user.FirstName}</td>
+                    <td>${user.LastName}</td>
+                    <td>${user.Age}</td>
+                    <td>${user.MobileNumber}</td>
+                    <td>${user.EmailId}</td>
+                    <td>${user.Password}</td>
+                </tr>
+            `;
+        });
+
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+  
+        document.getElementById('userTableContainer').innerHTML = tableHTML;
+    }
 </script>
 
 
 </html>
+
+
+
+
+
+
