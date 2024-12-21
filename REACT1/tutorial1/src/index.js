@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,createContext,useContext} from 'react';
+import React, { useEffect, useState, createContext, useContext, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css'
 // import Day1Component from './Day1';
@@ -89,34 +89,85 @@ import Home from './pages/Home';
 // }
 
 
-function Counter() {
-  let [count, setCount] = useState(0)
-//   let [calculation, setCalculation] = useState(0)
+// function Counter() {
+//   let [count, setCount] = useState(0)
+// //   let [calculation, setCalculation] = useState(0)
 
-  useEffect(() => {
-    // setCalculation(() => count * 2)
-    //  setCount((c) => c + 1)
-  }, [count])
-
-
-
-  return (
-    <>
-      <h1>count:{count}</h1>
-      <button type='button' onClick={() => setCount((c) => c + 1)}>click</button>
-    </>
-  )
-}
+//   useEffect(() => {
+//     // setCalculation(() => count * 2)
+//     //  setCount((c) => c + 1)
+//   }, [count])
 
 
 
+//   return (
+//     <>
+//       <h1>count:{count}</h1>
+//       <button type='button' onClick={() => setCount((c) => c + 1)}>click</button>
+//     </>
+//   )
+// }
+
+
+
+// useRef Hook
+// function App() {
+//   const [inputValue, setInputValue] = useState("");
+//   const count = useRef(0);
+//   useEffect(() => {
+//     count.current = count.current + 1
+//   })
+
+//   return(
+//     <>
+//      <input type='text' value={inputValue} onChange={(e)=>{setInputValue(e.target.value)}}/>
+//      <h1>Render count:{count.current}</h1>
+//     </>
+//   )
+// }
+
+
+//useRef to focus the input
+// function App() {
+//   const inpuElement = useRef();
+//   const focusInput = () => {
+//     inpuElement.current.focus();
+//   }
+
+//   return (
+//     <>
+//       <input type='text' ref={inpuElement} />
+//       <button onClick={focusInput}>focusInput</button>
+//     </>
+//   )
+// }
+
+
+//tracking of previous state value using useRef
+
+// function App() {
+//   const [inputValue, setInputValue] = useState("");
+//   const previousInput = useRef("")
+
+//   useEffect(() => {
+//     previousInput.current = inputValue
+//   }, [inputValue])
+
+// return (
+//   <>
+//     <input type='text' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+//     <h1>current value:{inputValue}</h1>
+//     <h1>previousInput:{previousInput.current}</h1>
+//   </>
+// )
+// }
 
 
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Counter />);
+root.render(<App />);
 
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
