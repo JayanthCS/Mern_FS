@@ -21,6 +21,11 @@ router.get("/", (request, response) => {
     //response.sendFile(__dirname, '../view/product_list.html')
 })
 
+router.get('/user/:Id',(request, response) => {
+    response.sendFile(path.join(__dirname, '../view/user_details.html'));
+   // response.sendFile(__dirname+"/view/user-details.html")
+})
+
 
 
 // router.get('/login', (request, response) => {

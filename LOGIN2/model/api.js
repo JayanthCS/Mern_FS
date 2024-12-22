@@ -92,12 +92,11 @@ router.post("/login", urlencodedParser, async (req, res) => {
                 res.status(200).json({
                     success: true,
                     user: {
-                        id: user.id,
+                        Id: user.Id,
                         f_name: user.f_name,
                         l_name: user.l_name,
                         email: user.email,
-                        phone: user.phone,
-                        address: user.address,
+                        mobile_no: user.mobile_no,
                         image: user.image || "default.jpg", // Default profile picture if none exists
                     },
                 });
@@ -110,6 +109,39 @@ router.post("/login", urlencodedParser, async (req, res) => {
         res.status(500).json({ success: false, error: "Internal server error" });
     } 
 });
+
+
+router.get("/user/:Id", (req, res) => {
+    const userId = req.params.Id;
+
+    const qry_str = `SELECT * FROM user_details WHERE Id = ?`;
+    connection.query(qry_str, [userId], (error, results) => {
+        if (error) {
+            console.error("Database error:", error);
+            return res.status(500).json({ success: false, error: "Internal server error" });
+        }
+
+        if (results.length === 0) {
+            return res.status(404).json({ success: false, error: "User not found" });
+        }
+
+        const user = results[0];
+        res.status(200).json({
+            success: true,
+            user: {
+                Id: user.Id,
+                f_name: user.f_name,
+                l_name: user.l_name,
+                email: user.email,
+                mobile_no: user.mobile_no,
+                image: user.image || "default.jpg",
+            },
+        });
+    });
+});
+
+
+
 
 
 

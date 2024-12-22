@@ -130,7 +130,7 @@
             <div class="col-4">
                 <h3 style="text-align: center;">Login Here</h3>
                 <div class="m-3">
-                    <form method="post" action="/api/login" id="loginForm">
+                    <form method="post" action="/api/login" id="loginForm" >
 
                         <label for="email">E-Mail</label>
                         <input type="email" id="email" name="email" placeholder="your email">
@@ -153,7 +153,7 @@
 </body>
 
 <script>
-   document.getElementById("loginForm").addEventListener("submit", function (event) {
+  document.getElementById("loginForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission from refreshing the page
 
     const email = document.getElementById("email").value;
@@ -174,25 +174,8 @@
             if (response.data.success) {
                 const user = response.data.user;
 
-                // Dynamically create and display user details
-                const userInfoContainer = document.getElementById("user_info");
-                userInfoContainer.innerHTML = `
-                    <div class="col-md-12">
-                        <div class="row shadow my-4">
-                            <div class="col-md-3 p-3 card">
-                                <img src="${user.image}" alt="Profile Picture" style="width:100%; height:200px;" />
-                            </div>
-                            <div class="col-md-9 p-3">
-                                <h4>ID: ${user.id}</h4>
-                                <h4>First Name: ${user.f_name}</h4>
-                                <h4>Last Name: ${user.l_name}</h4>
-                                <p>Email: ${user.email}</p>
-                                <p>Phone: ${user.phone}</p>
-                                <p>Address: ${user.address}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                // Redirect to the details page, passing the user ID as a query parameter
+                window.location.href = `/user_details.html?Id=${user.Id}`;
             } else {
                 alert(response.data.error || "Login failed. Please try again.");
             }
@@ -202,6 +185,17 @@
             alert("An error occurred. Please try again.");
         });
 });
+
+
+// if (response.data.success) {
+//     const user = response.data.user;
+
+//     // Redirect to the user details page with the user ID as a query parameter
+//     window.location.href = `/user-details.html?id=${user.id}`;
+// } else {
+//     alert(response.data.error || "Login failed. Please try again.");
+// }
+
 
 </script>
 </html>
