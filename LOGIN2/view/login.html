@@ -7,9 +7,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 </head>
 <style>
-     /* input[type=text],
+    /* input[type=text],
     select {
         width: 100%;
         padding: 12px 20px;
@@ -51,6 +52,7 @@
         border-radius: 4px;
         cursor: pointer;
     }
+
     input[type=email],
     select {
         width: 100%;
@@ -61,6 +63,7 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+
     input[type=password],
     select {
         width: 100%;
@@ -71,6 +74,7 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+
     input[type=submit]:hover {
         background-color: #45a049;
     }
@@ -91,10 +95,13 @@
         width: 100%;
     }
 </style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b9516b;">
         <div class="container-fluid">
-            <a  href=""> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1c7WpsqZNOpm9SnpoRkOtPVzEADlN2NlmLQ&s" alt="User Login" width="100%" height="50px"> </a>
+            <a href=""> <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1c7WpsqZNOpm9SnpoRkOtPVzEADlN2NlmLQ&s"
+                    alt="User Login" width="100%" height="50px"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -123,7 +130,7 @@
             <div class="col-4">
                 <h3 style="text-align: center;">Login Here</h3>
                 <div class="m-3">
-                    <form method="post" action="/api/login">
+                    <form method="post" action="/api/login" id="loginForm">
 
                         <label for="email">E-Mail</label>
                         <input type="email" id="email" name="email" placeholder="your email">
@@ -139,8 +146,62 @@
         </div>
     </div>
 
-   
+    <div class="container">
+        <div class="row" id="user_info"></div>
+    </div>
 
 </body>
 
+<script>
+   document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission from refreshing the page
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Email and password are required.");
+        return;
+    }
+
+    // Send the data as URL-encoded
+    const data = new URLSearchParams();
+    data.append("email", email);
+    data.append("password", password);
+
+    axios.post("/api/login", data)
+        .then(function (response) {
+            if (response.data.success) {
+                const user = response.data.user;
+
+                // Dynamically create and display user details
+                const userInfoContainer = document.getElementById("user_info");
+                userInfoContainer.innerHTML = `
+                    <div class="col-md-12">
+                        <div class="row shadow my-4">
+                            <div class="col-md-3 p-3 card">
+                                <img src="${user.image}" alt="Profile Picture" style="width:100%; height:200px;" />
+                            </div>
+                            <div class="col-md-9 p-3">
+                                <h4>ID: ${user.id}</h4>
+                                <h4>First Name: ${user.f_name}</h4>
+                                <h4>Last Name: ${user.l_name}</h4>
+                                <p>Email: ${user.email}</p>
+                                <p>Phone: ${user.phone}</p>
+                                <p>Address: ${user.address}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                alert(response.data.error || "Login failed. Please try again.");
+            }
+        })
+        .catch(function (error) {
+            console.error("Error during login:", error);
+            alert("An error occurred. Please try again.");
+        });
+});
+
+</script>
 </html>

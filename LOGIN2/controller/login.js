@@ -17,14 +17,15 @@ export default router;
 
 
 router.get("/", (request, response) => {
-    response.sendFile(__dirname, '../view/login.html')
+    response.sendFile(path.join(__dirname, '../view/login.html'));
+    //response.sendFile(__dirname, '../view/product_list.html')
 })
 
 
 
-router.get('/login', (request, response) => {
-    response.sendFile(__dirname, '../view/login.html')
-})
+// router.get('/login', (request, response) => {
+//     response.sendFile(__dirname, '../view/login.html')
+// })
 
 
 

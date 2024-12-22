@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 let router = express.Router()
 import formidable from "formidable";
 import bodyParser from "body-parser";
@@ -19,8 +19,6 @@ let connection = mysql.createConnection({
 })
 
 router.post("/register", (req, res, next) => {
-
-
     connection.connect()
     const form = formidable();
 
@@ -62,61 +60,94 @@ router.post("/register", (req, res, next) => {
 })
 
 
-// router.post("/login", urlencodedParser, function (req, res) {
-
-//     let qry_str = `SELECT * FROM  user_details WHERE email='${req.body.email}' AND password='${hashedPassword}'`
-
-//     connection.query(qry_str, function (error, results, fields) {
-//         if (error) throw error;
-//         console.log(results);
-//     }
-//     )
-
-// })
 
 router.post("/login", urlencodedParser, async (req, res) => {
-
-    connection.connect()
+    //connection.connect(); // Connect to the database
     try {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.status(400).json({ message: "Email and password are required" });
+            return res.status(400).json({ success: false, error: "Email and password are required" });
         }
 
-        const qry_str = `SELECT * FROM user_details WHERE email = '${req.body.email}'`;
+        const qry_str = `SELECT * FROM user_details WHERE email = ?`;
 
-        // Query the database for the user by email
         connection.query(qry_str, [email], async (error, results) => {
             if (error) {
                 console.error("Database error:", error);
-                return res.status(500).json({ message: "Internal server error" });
+                return res.status(500).json({ success: false, error: "Internal server error" });
             }
 
             if (results.length === 0) {
-                return res.status(401).json({ message: "Invalid email or password" });
+                return res.status(401).json({ success: false, error: "Invalid email or password" });
             }
 
             const user = results[0];
 
-            // Compare the hashed password with the provided password
+            // Compare the hashed password with the user-entered password
             const passwordMatches = await bcrypt.compare(password, user.password);
 
             if (passwordMatches) {
-                // Successful login
-                res.status(200).json({ message: "Login successful", user: { email: user.email, f_name: user.f_name } });
+                // Send all user details (excluding sensitive data like password)
+                res.status(200).json({
+                    success: true,
+                    user: {
+                        id: user.id,
+                        f_name: user.f_name,
+                        l_name: user.l_name,
+                        email: user.email,
+                        phone: user.phone,
+                        address: user.address,
+                        image: user.image || "default.jpg", // Default profile picture if none exists
+                    },
+                });
             } else {
-                // Invalid credentials
-                res.status(401).json({ message: "Invalid email or password" });
+                res.status(401).json({ success: false, error: "Invalid email or password" });
             }
         });
     } catch (error) {
         console.error("Error during login:", error);
-        res.status(500).json({ message: "Internal server error" });
-    } finally {
-        connection.end(); // Close the connection after the request is handled
-    }
+        res.status(500).json({ success: false, error: "Internal server error" });
+    } 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
