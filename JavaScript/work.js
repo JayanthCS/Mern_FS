@@ -2289,8 +2289,40 @@ console.log(positiveNumbers(nums));*/
 // }
 
 
+// console.log(typeof typeof 100);
 
 
+// const arr=[..."praveen"]
+// console.log(arr);
+
+
+// console.log(parseInt('10+2'));
+// console.log(parseInt('7FM'));
+// console.log(parseInt('M7F'));
+// console.log(parseInt('Hello'));
+
+
+// console.log([1, 2].map(num => {
+//     if (num > 0) return;//[undefined,undefined]
+//     return num * 2
+// }))
+
+// function abc() {
+//     return;
+// }
+// console.log(abc())//undefined
+
+
+// let a=12
+// console.log(a**10)
+
+
+// function test(){
+//   let  salary=20000;
+//     console.log(salary)
+// }
+
+// test()
 
 
 

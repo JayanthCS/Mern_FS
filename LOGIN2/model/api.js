@@ -6,10 +6,12 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 import fs from "fs"
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 export default router;
 
 
 import mysql from "mysql"
+
 
 let connection = mysql.createConnection({
     host: 'localhost',
@@ -18,7 +20,7 @@ let connection = mysql.createConnection({
     database: 'information'
 })
 
-router.post("/register", (req, res, next) => {
+router.post("/register", urlencodedParser, (req, res, next) => {
     connection.connect()
     const form = formidable();
 
@@ -35,11 +37,20 @@ router.post("/register", (req, res, next) => {
             let new_file_path = "Images/" + files.image[0].originalFilename
             // let file = files.image.filepath; // Access directly if it's not an array
             // let new_file_path = "Images/" + files.image.originalFilename;
+            let token = jwt.sign(
+                { email: fields.email, mobile_no: fields.mobile_no },
+                "your_jwt_secret_key",
+                { expiresIn: "1h" }
+            );
 
-            let qry_str = `INSERT INTO user_details(f_name,l_name,mobile_no,email,password,image) values('${fields.f_name}','${fields.l_name}','${fields.mobile_no}','${fields.email}','${hashedPassword}','${new_file_path}')`
+
+            let qry_str = `INSERT INTO user_details(f_name,l_name,mobile_no,email,password,token,image) values('${fields.f_name}','${fields.l_name}','${fields.mobile_no}','${fields.email}','${hashedPassword}','${token}','${new_file_path}')`;
             connection.query(qry_str, function (error, results, fields) {
                 if (error) throw error;
                 console.log(results);
+
+          
+             //   console.log("Generated JWT Token:", token); // Log the token to the console
 
                 //  connection.end()
 
@@ -47,7 +58,7 @@ router.post("/register", (req, res, next) => {
             fs.copyFile(file, new_file_path, (error) => {
                 if (error) throw error;
                 console.log("file has been uploaded!!");
-                res.send("File uploaded Successfully");
+                res.send("Registerd Successfully");
             });
 
         } catch (error) {
@@ -88,6 +99,7 @@ router.post("/login", urlencodedParser, async (req, res) => {
             const passwordMatches = await bcrypt.compare(password, user.password);
 
             if (passwordMatches) {
+
                 // Send all user details (excluding sensitive data like password)
                 res.status(200).json({
                     success: true,
@@ -99,7 +111,9 @@ router.post("/login", urlencodedParser, async (req, res) => {
                         mobile_no: user.mobile_no,
                         image: user.image || "default.jpg", // Default profile picture if none exists
                     },
+
                 });
+
             } else {
                 res.status(401).json({ success: false, error: "Invalid email or password" });
             }
@@ -107,7 +121,7 @@ router.post("/login", urlencodedParser, async (req, res) => {
     } catch (error) {
         console.error("Error during login:", error);
         res.status(500).json({ success: false, error: "Internal server error" });
-    } 
+    }
 });
 
 
@@ -142,47 +156,6 @@ router.get("/user/:Id", (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const jwt = require('jsonwebtoken');
 
 // router.post("/login", urlencodedParser, async (req, res) => {
@@ -210,11 +183,11 @@ router.get("/user/:Id", (req, res) => {
 
 //             if (passwordMatches) {
 //                 // Generate JWT
-//                 const token = jwt.sign(
-//                     { id: user.id, email: user.email },
-//                     "your_jwt_secret_key",
-//                     { expiresIn: "1h" }
-//                 );
+// const token = jwt.sign(
+//     { id: user.id, email: user.email },
+//     "your_jwt_secret_key",
+//     { expiresIn: "1h" }
+// );
 
 //                 res.status(200).json({ message: "Login successful", token });
 //             } else {
