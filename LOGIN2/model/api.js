@@ -37,20 +37,20 @@ router.post("/register", urlencodedParser, (req, res, next) => {
             let new_file_path = "Images/" + files.image[0].originalFilename
             // let file = files.image.filepath; // Access directly if it's not an array
             // let new_file_path = "Images/" + files.image.originalFilename;
-            let token = jwt.sign(
-                { email: fields.email, mobile_no: fields.mobile_no },
-                "your_jwt_secret_key",
-                { expiresIn: "1h" }
-            );
+            // let token = jwt.sign(
+            //     { email: fields.email, mobile_no: fields.mobile_no },
+            //     "your_jwt_secret_key",
+            //     { expiresIn: "1h" }
+            // );
 
 
-            let qry_str = `INSERT INTO user_details(f_name,l_name,mobile_no,email,password,token,image) values('${fields.f_name}','${fields.l_name}','${fields.mobile_no}','${fields.email}','${hashedPassword}','${token}','${new_file_path}')`;
+            let qry_str = `INSERT INTO user_details(f_name,l_name,mobile_no,email,password,image) values('${fields.f_name}','${fields.l_name}','${fields.mobile_no}','${fields.email}','${hashedPassword}','${new_file_path}')`;
             connection.query(qry_str, function (error, results, fields) {
                 if (error) throw error;
                 console.log(results);
 
-          
-             //   console.log("Generated JWT Token:", token); // Log the token to the console
+
+                //   console.log("Generated JWT Token:", token); // Log the token to the console
 
                 //  connection.end()
 
@@ -97,6 +97,14 @@ router.post("/login", urlencodedParser, async (req, res) => {
 
             // Compare the hashed password with the user-entered password
             const passwordMatches = await bcrypt.compare(password, user.password);
+
+            let token = jwt.sign(
+                {email },
+                "your_jwt_secret_key",
+                { expiresIn: "1h" }
+            );
+
+            console.log("Token:", token)
 
             if (passwordMatches) {
 
