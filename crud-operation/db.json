@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Jayanth C S",
+      "username": "Jay",
+      "email": "jay@123",
+      "phone": "8861174016",
+      "website": "learn.org"
+    },
+    {
+      "id": "6126",
+      "name": "Kumar",
+      "email": "kumar@gmail.com",
+      "phone": "9853215655"
+    }
+  ]
+}

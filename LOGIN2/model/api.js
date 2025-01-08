@@ -20,7 +20,7 @@ let connection = mysql.createConnection({
     database: 'information'
 })
 
-router.post("/register", urlencodedParser, (req, res, next) => {
+router.post("/register", urlencodedParser, (req, res, next) => {//urlencodedParser:A middleware function that processes the incoming request before passing it to the route handler. Parses URL-encoded data from the request body (e.g., form submissions) and makes it available as req.body.
     connection.connect()
     const form = formidable();
 
@@ -33,8 +33,8 @@ router.post("/register", urlencodedParser, (req, res, next) => {
             let saltRounds = 10;
             let hashedPassword = await bcrypt.hash(password, saltRounds);
 
-            let file = files.image[0].filepath
-            let new_file_path = "Images/" + files.image[0].originalFilename
+            let file = files.image[0]
+           // let new_file_path = "Images/" + files.image[0].originalFilename
             // let file = files.image.filepath; // Access directly if it's not an array
             // let new_file_path = "Images/" + files.image.originalFilename;
             // let token = jwt.sign(
@@ -44,7 +44,7 @@ router.post("/register", urlencodedParser, (req, res, next) => {
             // );
 
 
-            let qry_str = `INSERT INTO user_details(f_name,l_name,mobile_no,email,password,image) values('${fields.f_name}','${fields.l_name}','${fields.mobile_no}','${fields.email}','${hashedPassword}','${new_file_path}')`;
+            let qry_str = `INSERT INTO user_details(f_name,l_name,mobile_no,email,password,image) values('${fields.f_name}','${fields.l_name}','${fields.mobile_no}','${fields.email}','${hashedPassword}','${file}')`;
             connection.query(qry_str, function (error, results, fields) {
                 if (error) throw error;
                 console.log(results);
@@ -55,16 +55,17 @@ router.post("/register", urlencodedParser, (req, res, next) => {
                 //  connection.end()
 
             });
-            fs.copyFile(file, new_file_path, (error) => {
-                if (error) throw error;
-                console.log("file has been uploaded!!");
-                res.send("Registerd Successfully");
-            });
+            // fs.copyFile(file, new_file_path, (error) => {
+            //     if (error) throw error;
+            //     console.log("file has been uploaded!!");
+            //     res.send("Registerd Successfully");
+            // });
 
         } catch (error) {
             console.error("Error during password hashing or database operation:", error);
             res.status(500).send("Server error.");
         } finally {
+            res.send("Registerd Successfully")
             connection.end();
         }
     });
@@ -83,7 +84,10 @@ router.post("/login", urlencodedParser, async (req, res) => {
 
         const qry_str = `SELECT * FROM user_details WHERE email = ?`;
 
-        connection.query(qry_str, [email], async (error, results) => {
+        connection.query(qry_str, [email], async (error, results) => {//{[email]=>This is an array of parameters to substitute into the query. 
+            // Here, email is passed as the parameter. The placeholder (?) in qry_str is replaced by the value of email during query execution.
+            // This ensures the query is safe from SQL injection attacks.}
+            //async:Allows the use of await inside the callback for asynchronous operations, such as further processing the query results.
             if (error) {
                 console.error("Database error:", error);
                 return res.status(500).json({ success: false, error: "Internal server error" });
@@ -99,7 +103,7 @@ router.post("/login", urlencodedParser, async (req, res) => {
             const passwordMatches = await bcrypt.compare(password, user.password);
 
             let token = jwt.sign(
-                {email },
+                { email },
                 "your_jwt_secret_key",
                 { expiresIn: "1h" }
             );
